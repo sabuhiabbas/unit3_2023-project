@@ -31,7 +31,6 @@
 ## List of techniques used
 
 ## Development
-The following are what we developed from the client’s success criteria.
 
 
 # Criteria D: Functionality
