@@ -15,7 +15,7 @@
 
 # Criteria B: Design
 
-## System Diagram **HL**
+## System Diagram
 
 
 ## Test Plan
