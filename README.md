@@ -8,7 +8,9 @@ Oswell Taiga Sakaguchi runs a ski and snowboard rental shop called "Fly skis" in
 </p>
 
 ## Proposed Solution
-
+<p align="justify">
+Proposed Solution: To solve the issue of keeping track of equipment rented out at Fly Skis, a custom mobile application can be developed using the Python programming language[^1] and the Kivy MD library[^2] for the user interface design. The application will require employees to log in to access customer and equipment information. Once logged in, employees will be able to add new rental transactions by entering the customer's ID, the equipment ID, the size, and the rented date. This information will be securely stored and encrypted, ensuring the privacy of the customers' data. By implementing this custom application, Fly Skis will have a centralized, easy-to-use solution for tracking equipment rentals, improving the efficiency of the rental process and reducing frustration among employees.
+</p>  
 
 ## Design Statement
 
@@ -37,3 +39,5 @@ Oswell Taiga Sakaguchi runs a ski and snowboard rental shop called "Fly skis" in
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
+
+[^1]: 
