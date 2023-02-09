@@ -9,16 +9,16 @@ However, this has also created problems for his employees. They have recently ex
 </p>
 
 ## Proposed Solution
+### Design Statement
 <p align="justify">
-To solve the issue of keeping track of equipment rented out at Fly Skis, a custom mobile application can be developed using the Python programming language and the Kivy MD library for the user interface design. The choice of Python was made for several reasons, including its ease of use, large community, and wide range of libraries. It is also available on all software systems. The Kivy MD library was chosen because it provides a material design look and feel for the user interface, making it intuitive and easy to use for employees.
-The data for the rental transactions will be stored using SQL. SQL is a powerful and flexible database management system that is well-suited for this type of application. Some reasons why SQL is a good choice include its ability to handle large amounts of data, its security features, and its support for multiple user access. By using SQL to store the rental information, Fly Skis will have a robust and scalable solution for managing their equipment rentals.
+To solve the issue of keeping track of equipment rented out at Fly Skis, a custom application can be developed using the Python programming language and the Kivy MD library for the user interface design. The choice of Python was made for several reasons, including its ease of use, large community, and wide range of libraries. It is also available on all software systems. The Kivy MD library was chosen because it provides a material design look and feel for the user interface, making it intuitive and easy to use for employees.
+The data for the rental transactions will be stored using SQL. SQL is a very strong and versatile database management system. It is perfect for this kind of application because it can handle a lot of data, keep it safe with its security features, and support multiple people using it at the same time. It's really amazing what SQL can do! By using SQL to store the rental information, Fly Skis will have a robust and scalable solution for managing their equipment rentals.
 With this proposed solution, Fly Skis will have a centralized, easy-to-use system for tracking equipment rentals, improving the efficiency of the rental process, and reducing frustration among employees.
-</p>  
+</p>
 
-## Design Statement
+### Success Criteria
 
-
-## Success Criteria
+### Rationale for Proposed Solution
 
 # Criteria B: Design
 
