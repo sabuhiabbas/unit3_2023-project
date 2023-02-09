@@ -1,4 +1,4 @@
-# Unit 3: Ski/snowboard rental shop tracker app
+# Unit 3: Ski/snowboard rental shop tracker
 
 # Criteria A: Planning
 
