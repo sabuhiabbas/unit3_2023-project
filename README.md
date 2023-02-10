@@ -17,12 +17,12 @@ With this proposed solution, Fly Skis will have a centralized, easy-to-use syste
 </p>
 
 ### Success Criteria
-1. Some sensitive data entered will be encrypted.
-2. The solution allows user to to protect the data by a login system.
-3. The user can enter different type of information based on the rental equipment.
-4. The solutions provides the user with the future to easily delete the rented equipment when returned.
-5. The user will be able to see borrowed equipments categorized based on customer id, rental equipment, and date.
-6. The solution allows the user to edit entered data after added to the application.
+1. The solution implements encryption of sensitive data inputted by the user.
+2. The application features a secure login system, enabling the user to protect their data. 
+3. The user is able to input various information pertaining to the rental equipment. 
+4. The solution affords the user the ability to effortlessly delete equipment records upon return. 
+5. The user is able to view a categorized list of borrowed equipment, organized by customer ID, type of rental equipment, and rental date. 
+6. The user has the capability to edit previously entered data within the application.
 
 ### Rationale for Proposed Solution
 Python is a versatile language and can be used for a wide range of applications, including web development, scientific computing, data analysis, artificial intelligence, and more. This versatility makes it a good choice for building a wide range of applications, including custom software.[^1]
