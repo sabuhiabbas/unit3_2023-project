@@ -19,9 +19,11 @@ With this proposed solution, Fly Skis will have a centralized, easy-to-use syste
 ### Success Criteria
 
 ### Rationale for Proposed Solution
-Versatility: Python is a versatile language and can be used for a wide range of applications, including web development, scientific computing, data analysis, artificial intelligence, and more. This versatility makes it a good choice for building a wide range of applications, including custom software.[^1]
-Large and Active Community: Python has a large and active community of users and developers. This means that there is a wealth of resources available to help you learn the language and build your application, as well as a large pool of talented developers who can contribute to your project.[^2]
-Easy to Learn and Use: Python has a simple, intuitive syntax that makes it easy for new users to learn and for experienced developers to quickly pick up. This makes it a good choice for building applications quickly and with fewer bugs, as well as for prototyping new ideas.[^3]
+Python is a versatile language and can be used for a wide range of applications, including web development, scientific computing, data analysis, artificial intelligence, and more. This versatility makes it a good choice for building a wide range of applications, including custom software.[^1]
+Python has a large and active community of users and developers. This means that there is a wealth of resources available to help you learn the language and build your application, as well as a large pool of talented developers who can contribute to your project.[^2]
+Python has a simple, intuitive syntax that makes it easy for new users to learn and for experienced developers to quickly pick up. This makes it a good choice for building applications quickly and with fewer bugs, as well as for prototyping new ideas.[^3]
+
+One of the main advantages of using KivyMD is that it allows developers to build applications that can run on multiple platforms, including Android, iOS, and Windows. This makes it an ideal choice for those who want to reach a wide audience with their apps.[^4] KivyMD is designed to be user-friendly and intuitive, making it easy for developers of all skill levels to get started with creating their own applications. This can help to save time and effort, allowing developers to focus on creating their app's functionality and features.[^4] KivyMD offers a wide range of customization options that allow developers to tailor their apps to meet the specific needs of their users. From changing the look and feel of the interface to adding custom animations, the library offers a variety of options to make an app truly unique.[^4]
 
 # Criteria B: Design
 
@@ -36,6 +38,7 @@ Easy to Learn and Use: Python has a simple, intuitive syntax that makes it easy 
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
 
+
 # Criteria C: Development
 
 ## List of techniques used
@@ -46,6 +49,7 @@ Easy to Learn and Use: Python has a simple, intuitive syntax that makes it easy 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
 
-[^1]: "Python." Wikipedia, Wikimedia Foundation, 8 Feb. 2023, en.wikipedia.org/wiki/Python.
-[^2]: "Why Choose Python." Python.org, Python Software Foundation, 8 Feb. 2023, python.org/about/gettingstarted/.
-[^3]: "Python for Data Science Handbook." O'Reilly, O'Reilly Media, Inc., 8 Feb. 2023, https://www.oreilly.com/library/view/python-for-data/9781491912126/
+[^1]: "Python." Wikipedia, Wikimedia Foundation, 10 Feb. 2023, https://en.wikipedia.org/wiki/Python.
+[^2]: "Why Choose Python." Python.org, Python Software Foundation, 10 Feb. 2023, https://www.python.org/about/gettingstarted/.
+[^3]: "Python for Data Science Handbook." O'Reilly, O'Reilly Media, Inc., 10 Feb. 2023, https://www.oreilly.com/library/view/python-for-data/9781491912126/
+[^4]: "KivyMD: Material Design Components for Kivy." Github, 10 Feb. 2023, https://github.com/kivymd/KivyMD.
