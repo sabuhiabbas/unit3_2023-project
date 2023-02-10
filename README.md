@@ -19,6 +19,9 @@ With this proposed solution, Fly Skis will have a centralized, easy-to-use syste
 ### Success Criteria
 
 ### Rationale for Proposed Solution
+Versatility: Python is a versatile language and can be used for a wide range of applications, including web development, scientific computing, data analysis, artificial intelligence, and more. This versatility makes it a good choice for building a wide range of applications, including custom software.[^1]
+Large and Active Community: Python has a large and active community of users and developers. This means that there is a wealth of resources available to help you learn the language and build your application, as well as a large pool of talented developers who can contribute to your project.[^2]
+Easy to Learn and Use: Python has a simple, intuitive syntax that makes it easy for new users to learn and for experienced developers to quickly pick up. This makes it a good choice for building applications quickly and with fewer bugs, as well as for prototyping new ideas.[^3]
 
 # Criteria B: Design
 
@@ -42,3 +45,7 @@ With this proposed solution, Fly Skis will have a centralized, easy-to-use syste
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
+
+[^1]: "Python." Wikipedia, Wikimedia Foundation, 8 Feb. 2023, en.wikipedia.org/wiki/Python.
+[^2]: "Why Choose Python." Python.org, Python Software Foundation, 8 Feb. 2023, python.org/about/gettingstarted/.
+[^3]: "Python for Data Science Handbook." O'Reilly, O'Reilly Media, Inc., 8 Feb. 2023, https://www.oreilly.com/library/view/python-for-data/9781491912126/
