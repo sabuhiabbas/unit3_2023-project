@@ -36,6 +36,9 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 
 ## System Diagram
 ![System diagram for skisnowboard rental shop tracker](https://user-images.githubusercontent.com/111758436/218088249-14279bc6-a1fe-40fd-98bb-fd0d3174b344.png)
+<p align='justify'>
+<i>Figure 1</i> - System diagram for the application. As shown in the figure 1, the application uses PyCharm and KivyMD Library to develop the program. Shown with arrows, it stores the data in unit3_project_database.db, using the SQLite database engine. 
+</p>
 
 ## Test Plan
 | Description | Type | Inputs | Outputs | 
