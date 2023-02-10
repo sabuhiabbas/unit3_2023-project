@@ -42,6 +42,11 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 </p>
 
 ## Wireframe
+![unit3_project_wireframe (1)](https://user-images.githubusercontent.com/111758436/218105085-c54acaf6-3e25-42ba-a799-c51b652a95ae.png)
+<p align='justify'>
+<i>Figure 2</i> - Wirefrime for the user interface. 
+</p>
+
 ## Flow diagram
 ## ER Diagram
 ## UML Diagram
