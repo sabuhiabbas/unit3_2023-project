@@ -1,5 +1,10 @@
 # Unit 3: Ski/snowboard rental shop tracker
 
+![image](https://user-images.githubusercontent.com/111758436/218400436-5362c306-be78-4a34-9e6d-dd300da998e9.png)
+<p align='justify'>
+<i>Ski / Snowboard Rental</i> - “Ski / Snowboard Rental - SNOW MONKEY RESORTS.” SNOW MONKEY RESORTS!, 29 March 2021, https://www.snowmonkeyresorts.com/activities/ski-snowboard-rental/. Accessed 13 February 2023.
+</p>
+
 # Criteria A: Planning
 
 ## Problem definition
