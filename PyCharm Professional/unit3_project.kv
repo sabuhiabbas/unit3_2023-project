@@ -10,6 +10,9 @@ ScreenManager:
     HomeScreen:
         name: "HomeScreen"
 
+    NewitemScreen:
+        name: "NewitemScreen"
+
 <LoginScreen>:
     size: 500, 500
     FitImage:
@@ -48,7 +51,7 @@ ScreenManager:
                 hint_text: "Enter your password"
                 icon_left: "key"
                 password: not show_pass.active
-                elper_text_mode: "on_error"
+                helper_text_mode: "on_error"
                 helper_text: "Please enter password"
 
             MDBoxLayout:
@@ -75,7 +78,7 @@ ScreenManager:
                 id: login
                 text: "Login"
                 on_press: root.try_login()
-                size_hint: .3, .4
+                size_hint: .3, .5
                 md_bg_color: "#689ebd"
 
             MDLabel:
@@ -87,7 +90,7 @@ ScreenManager:
                 id: signup
                 text: "Signup"
                 on_press: app.root.current = "SignupScreen"
-                size_hint: .3, .4
+                size_hint: .3, .5
                 md_bg_color: "#689ebd"
 
 <SignupScreen>:
@@ -151,7 +154,7 @@ ScreenManager:
                 id: signup_cancel
                 text: "Cancel"
                 on_press: root.try_cancel()
-                size_hint: .3, .65
+                size_hint: .3, .7
                 md_bg_color: "#93BFCF"
 
             MDLabel:
@@ -162,8 +165,8 @@ ScreenManager:
                 font_name: "avenir_regular.ttf"
                 id: signup
                 text: "Submit"
-                on_press: root.app.current = 'HomeScreen'
-                size_hint: .3, .65
+                on_press: root.try_register()
+                size_hint: .3, .7
                 md_bg_color: "#689ebd"
 
 <HomeScreen>:
@@ -205,6 +208,7 @@ ScreenManager:
                     pos_hint: {'center_x': .5}
                     md_bg_color: "#689ebd"
                     font_name: "avenir_regular.ttf"
+                    on_press: root.try_newitem()
 
                 MDFillRoundFlatIconButton:
                     text: 'Borrowed items list'
@@ -220,3 +224,108 @@ ScreenManager:
                     on_press: app.root.current = 'LoginScreen'
                     md_bg_color: "#689ebd"
                     font_name: "avenir_regular.ttf"
+
+<NewitemScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDCard:
+        size_hint: .5, .9
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: "#EEE9DA"
+
+
+        MDBoxLayout:
+            size_hint: 1, .1
+            MDLabel:
+                text: "New item"
+                font_name: "avenir_regular.ttf"
+                font_size: 30
+                size_hint: 1, 1
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .3}
+
+        MDLabel:
+            size_hint: 1, .2
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint: 1, .85
+            padding: dp(30)
+
+            MDTextField:
+                id: customer_id
+                hint_text: "Customer ID"
+                icon_left: "account"
+                on_text_validate: root.validate_customer_id(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Customer ID must be a number"
+
+            MDTextField:
+                id: date
+                hint_text: "Date"
+                icon_left: "calendar"
+                multiline: False
+                on_text_validate: root.validate_date(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Date must be in this format: dd-mm-YYYY"
+
+            MDTextField:
+                id: item
+                hint_text: "Item"
+                icon_left: "shopping"
+                on_text_validate: root.validate_item(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Item must be one of these:\nSki, Snowboard, Ski shoes, Snowboard boots,\nSki clothes, Snowboard clothes"
+
+            MDTextField:
+                id: size
+                hint_text: "Size"
+                icon_left: "resize"
+                on_text_validate: root.validate_size(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Size must be a number"
+
+            MDTextField:
+                id: item_id
+                hint_text: "Item ID"
+                icon_left: "barcode"
+                on_text_validate: root.validate_item_id(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Item ID must be a number"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: .9, .1
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: newitem_cancel
+                text: "Cancel"
+                on_press: app.root.current = 'HomeScreen'
+                size_hint: .3, .7
+                md_bg_color: "#689ebd"
+
+            MDLabel:
+                id: item_added
+                font_name: "avenir_regular.ttf"
+                text: ""
+                font_size: 15
+                size_hint: .3, 1
+                halign: "center"
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: newitem_submit
+                text: "Submit"
+                on_press: root.try_submit()
+                size_hint: .3, .7
+                md_bg_color: "#689ebd"
+
+        MDLabel:
+            size_hint: 1, .05
+

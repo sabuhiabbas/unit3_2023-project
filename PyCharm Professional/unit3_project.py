@@ -1,12 +1,12 @@
-# login.py
+# unit3_project.py
 import sqlite3
-import random
 
-from email_validator import validate_email, EmailNotValidError
 from passlib.context import CryptContext
 
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
+
+from datetime import datetime
 
 pwd_config = CryptContext(schemes=["pbkdf2_sha256"],
                           default="pbkdf2_sha256",
@@ -61,6 +61,38 @@ class database_handler_login_signup(MDApp):
         query = f"INSERT into users (email, password, username) VALUES ('{email}', '{password}', '{username}')"
         self.run_query(query)
 
+class database_handler_items(MDApp):
+    def __init__(self, namedb: str):
+        self.connection = sqlite3.connect(namedb)
+        self.cursor = self.connection.cursor()
+
+    def create_table(self):
+        query = f"""CREATE TABLE if not exists items(
+            id INTEGER PRIMARY KEY not NULL,
+            customer_id int,
+            date text,
+            item text,
+            size text,
+            item_id int
+            )"""
+        self.run_query(query)
+
+    def run_query(self, query: str):
+        # This function runs a console query
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    def search(self, query):
+        result = self.cursor.execute(query).fetchall()
+        return result
+
+    def close(self):
+        # This function is to close a database
+        self.connection.close()
+
+    def insert(self, customer_id, date, item, size, item_id):
+        query = f"INSERT into items (customer_id, date, item, size, item_id) VALUES ('{customer_id}', '{date}', '{item}', '{size}', '{item_id}')"
+        self.run_query(query)
 
 class LoginScreen(MDScreen):
 
@@ -85,6 +117,8 @@ class LoginScreen(MDScreen):
                 if check_password(result[0][0], pass_entered):
                     print(f"Login successfull")
                     self.parent.current = "HomeScreen"
+                    self.ids.email_in.text = ""
+                    self.ids.passwd_in.text = ""
                 else:
                     print("Try again")
             else:
@@ -97,7 +131,6 @@ class LoginScreen(MDScreen):
 
     def build(self):
         return
-
 
 class SignupScreen(MDScreen):
     def try_cancel(self):
@@ -112,7 +145,13 @@ class SignupScreen(MDScreen):
         else:
             db.insert(email=self.ids.email.text, username=self.ids.uname.text,
                       password=hash_password(self.ids.c_passwd.text))
-        print("New user")
+            print("New user")
+            self.parent.current = "LoginScreen"
+            self.ids.e_passwd.text = ""
+            self.ids.c_passwd.text = ""
+            self.ids.uname.text = ""
+            self.ids.email.text = ""
+
 
     def toggle_show_password(self):
         self.show_password = not self.show_password
@@ -124,6 +163,75 @@ class HomeScreen(MDScreen):
         print("User trying logging out")
         self.parent.current = "LoginScreen"
 
+    def try_newitem(self):
+        print("Trying adding new item")
+        self.parent.current = 'NewitemScreen'
+
+    def build(self):
+        return
+
+class NewitemScreen(MDScreen):
+    input_format = "%d-%m-%Y"
+
+    def validate_date(self, text):
+        """
+        Validate the entered date
+        """
+        # Check if the entered text is a valid date in the specified format
+        try:
+            datetime.strptime(text, self.input_format)
+            print("Valid date entered!")
+        except ValueError:
+            self.ids.date.error = True
+
+    def validate_customer_id(self, text):
+        """
+        Validate the customer ID entered in the customer_id MDTextField.
+        """
+        try:
+            customer_id = int(text)
+        except ValueError:
+            self.ids.customer_id.error = True
+
+    def validate_size(self, text):
+        """
+        Validate the size entered in "size" MDTextField.
+        """
+        try:
+            size = float(text)
+        except ValueError:
+            self.ids.size.error = True
+
+    def validate_item_id(self, text):
+        """
+        Validate the item ID entered in the item_id MDTextField.
+        """
+        try:
+            item_id = int(text)
+        except ValueError:
+            self.ids.item_id.error = True
+
+    def validate_item(self, text):
+        """
+        Validate the item entered in item MDTextField.
+        """
+        items = ["Ski", "Snowboard", "Ski shoes", "Snowboard boots", "Ski clothes", "Snowboard clothes"]
+        try:
+            index = items.index(text)
+        except ValueError:
+            self.ids.item.error = True
+
+    def try_submit(self):
+        db_items = database_handler_items(namedb="unit3_project_database.db")
+        db_items.insert(self.ids.customer_id.text, self.ids.date.text, self.ids.item.text, self.ids.size.text, self.ids.item_id.text)
+        print("Item added")
+        self.ids.item_added.text = "Item added!"
+        self.ids.customer_id.text = ""
+        self.ids.date.text = ""
+        self.ids.item.text = ""
+        self.ids.size.text = ""
+        self.ids.item_id.text = ""
+
     def build(self):
         return
 
@@ -134,7 +242,11 @@ class unit3_project(MDApp):
 db = database_handler_login_signup(namedb="unit3_project_database.db")
 db.create_table()
 
+db_items = database_handler_items(namedb="unit3_project_database.db")
+db_items.create_table()
+
 test = unit3_project()
 test.run()
 
 db.close()
+db_items.close()
