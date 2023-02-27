@@ -1,6 +1,8 @@
 # unit3_project.py
 import sqlite3
 
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.dialog import MDDialog
 from passlib.context import CryptContext
 
 from kivymd.app import MDApp
@@ -225,12 +227,19 @@ class NewitemScreen(MDScreen):
         db_items = database_handler_items(namedb="unit3_project_database.db")
         db_items.insert(self.ids.customer_id.text, self.ids.date.text, self.ids.item.text, self.ids.size.text, self.ids.item_id.text)
         print("Item added")
-        self.ids.item_added.text = "Item added!"
+
+        # Create and open the alert dialog
+        dialog = MDDialog(title="Thank you, item added!", text=f"Your item ID: {self.ids.item_id.text} has been successfully added.")
+        dialog_buttons = [MDFlatButton(text="OK", on_release=dialog.dismiss, md_bg_color=[1, 1, 1, 1])]
+        dialog.buttons = dialog_buttons
+        dialog.open()
+
         self.ids.customer_id.text = ""
         self.ids.date.text = ""
         self.ids.item.text = ""
         self.ids.size.text = ""
         self.ids.item_id.text = ""
+        self.parent.current= 'HomeScreen'
 
     def build(self):
         return

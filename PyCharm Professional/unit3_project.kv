@@ -299,7 +299,7 @@ ScreenManager:
 
         MDBoxLayout:
             orientation: "horizontal"
-            size_hint: .9, .1
+            size_hint: .7, .1
             pos_hint: {"center_x": .5, "center_y": .5}
 
             MDRaisedButton:
@@ -307,14 +307,10 @@ ScreenManager:
                 id: newitem_cancel
                 text: "Cancel"
                 on_press: app.root.current = 'HomeScreen'
-                size_hint: .3, .7
+                size_hint: .35, .7
                 md_bg_color: "#689ebd"
 
             MDLabel:
-                id: item_added
-                font_name: "avenir_regular.ttf"
-                text: ""
-                font_size: 15
                 size_hint: .3, 1
                 halign: "center"
 
@@ -323,7 +319,7 @@ ScreenManager:
                 id: newitem_submit
                 text: "Submit"
                 on_press: root.try_submit()
-                size_hint: .3, .7
+                size_hint: .35, .7
                 md_bg_color: "#689ebd"
 
         MDLabel:
