@@ -343,13 +343,30 @@ ScreenManager:
         MDLabel:
             size_hint: 1, .05
 
-        MDRaisedButton:
-            id: add
-            size_hint: .2, .1
-            text: "Delete"
-            on_press: root.delete()
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: .5, .1
             pos_hint: {"center_x": .5, "center_y": .5}
-            md_bg_color: "#689ebd"
+
+
+            MDRaisedButton:
+                id: return_home
+                size_hint: .4, 1
+                text: "Return home"
+                on_press: app.root.current = "HomeScreen"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: "#689ebd"
+
+            MDLabel:
+                size_hint: .2, .1
+
+            MDRaisedButton:
+                id: delete
+                size_hint: .4, 1
+                text: "Delete"
+                on_press: root.delete()
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: "#689ebd"
 
         MDLabel:
             size_hint: 1, .1

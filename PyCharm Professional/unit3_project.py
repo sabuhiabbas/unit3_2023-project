@@ -310,11 +310,15 @@ class BorrowedItemsScreen(MDScreen):
         # delete
         db = database_handler_items("unit3_project_database.db")
         for r in checked_rows:
-            id = r[0]
-            print(id)
-            query = f"delete from items where id = {id}"
+            item_id = r[4]  # use item_id instead of id
+            print(item_id)
+            query = f"delete from items where item_id = {item_id}"  # use item_id instead of id
             print(query)
             db.run_save(query)
+            # Create and open the alert dialog to confirm item has been deleted
+            dialog = MDDialog(title="Thank you, item deleted!",
+                              text=f"Your item ID: {item_id} has been successfully deleted.")
+            dialog.open()
         db.close()
         self.update()
 
@@ -335,15 +339,9 @@ class BorrowedItemsScreen(MDScreen):
         )
 
         # Add functions for events of the mouse
-        self.data_table.bind(on_row_press=self.row_pressed)
         self.data_table.bind(on_check_press=self.check_pressed)
         self.add_widget(self.data_table)  # Add the table to the GUI
         self.update()
-
-    def row_pressed(self, table, row):
-        # Function to handle when a row is pressed
-        print("a row was pressed", row.text)
-        row.md_bg_color = "#ff0000"
 
     def check_pressed(self, table, current_row):
         # Function to handle when a check mark is pressed
