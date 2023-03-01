@@ -13,6 +13,9 @@ ScreenManager:
     NewitemScreen:
         name: "NewitemScreen"
 
+    BorrowedItemsScreen:
+        name: "BorrowedItemsScreen"
+
 <LoginScreen>:
     size: 500, 500
     FitImage:
@@ -89,7 +92,7 @@ ScreenManager:
                 font_name: "avenir_regular.ttf"
                 id: signup
                 text: "Signup"
-                on_press: app.root.current = "SignupScreen"
+                on_press: root.try_signup()
                 size_hint: .3, .5
                 md_bg_color: "#689ebd"
 
@@ -216,6 +219,7 @@ ScreenManager:
                     pos_hint: {'center_x': .5}
                     md_bg_color: "#689ebd"
                     font_name: "avenir_regular.ttf"
+                    on_release: app.root.current = "BorrowedItemsScreen"
 
                 MDFillRoundFlatIconButton:
                     text: 'Log out'
@@ -306,7 +310,7 @@ ScreenManager:
                 font_name: "avenir_regular.ttf"
                 id: newitem_cancel
                 text: "Cancel"
-                on_press: app.root.current = 'HomeScreen'
+                on_press: root.try_cancel()
                 size_hint: .35, .7
                 md_bg_color: "#689ebd"
 
@@ -325,3 +329,27 @@ ScreenManager:
         MDLabel:
             size_hint: 1, .05
 
+<BorrowedItemsScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDLabel:
+        size_hint: 1, .9
+
+    MDBoxLayout:
+        size_hint: 1, .1
+        orientation: "vertical"
+        MDLabel:
+            size_hint: 1, .05
+
+        MDRaisedButton:
+            id: add
+            size_hint: .2, .1
+            text: "Delete"
+            on_press: root.delete()
+            pos_hint: {"center_x": .5, "center_y": .5}
+            md_bg_color: "#689ebd"
+
+        MDLabel:
+            size_hint: 1, .1
