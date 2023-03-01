@@ -21,14 +21,6 @@ The data for the rental transactions will be stored using SQL. SQL is a very str
 With this proposed solution, Fly Skis will have a centralized, easy-to-use system for tracking equipment rentals, improving the efficiency of the rental process, and reducing frustration among employees.
 </p>
 
-### Success Criteria
-1. The solution implements encryption of sensitive data inputted by the user.
-2. The application features a secure login system, enabling the user to protect their data. 
-3. The user is able to input various information pertaining to the rental equipment. 
-4. The solution affords the user the ability to effortlessly delete equipment records upon return. 
-5. The user is able to view a categorized list of borrowed equipment, organized by customer ID, type of rental equipment, and rental date. 
-6. The user has the capability to edit previously entered data within the application.
-
 ### Rationale for Proposed Solution
 Python is a versatile language and can be used for a wide range of applications, including web development, scientific computing, data analysis, artificial intelligence, and more. This versatility makes it a good choice for building a wide range of applications, including custom software.[^1]
 Python has a large and active community of users and developers. This means that there is a wealth of resources available to help you learn the language and build your application, as well as a large pool of talented developers who can contribute to your project.[^2]
@@ -37,6 +29,14 @@ Python has a simple, intuitive syntax that makes it easy for new users to learn 
 One of the main advantages of using KivyMD is that it allows developers to build applications that can run on multiple platforms, including Android, iOS, and Windows. This makes it an ideal choice for those who want to reach a wide audience with their apps. KivyMD is designed to be user-friendly and intuitive, making it easy for developers of all skill levels to get started with creating their own applications. This can help to save time and effort, allowing developers to focus on creating their app's functionality and features. KivyMD offers a wide range of customization options that allow developers to tailor their apps to meet the specific needs of their users. From changing the look and feel of the interface to adding custom animations, the library offers a variety of options to make an app truly unique.[^4]
 
 SQL is designed to handle large amounts of data efficiently, making it an ideal choice for applications that need to store and manage a large amount of information. This makes it an ideal choice for applications that need to scale as they grow, as SQL databases can be easily expanded to meet the needs of the application. SQL databases allow for the storage of structured data, which can be easily queried and manipulated. This makes it easier to find the information you need, and to perform complex data analysis tasks. SQL databases are highly reliable, and offer features such as transaction management and data integrity to ensure that the data stored in the database remains accurate and up-to-date. This makes SQL an ideal choice for applications that need to store critical data that must be maintained even in the event of a power outage or other failure.[^5]
+
+### Success Criteria
+1. The solution implements encryption of sensitive data inputted by the user.
+2. The application features a secure login system, enabling the user to protect their data. 
+3. The user is able to input various information pertaining to the rental equipment. 
+4. The solution affords the user the ability to effortlessly delete equipment records upon return. 
+5. The user is able to view a categorized list of borrowed equipment, organized by customer ID, type of rental equipment, and rental date. 
+6. The user has the capability to edit previously entered data within the application.
 
 # Criteria B: Design
 
@@ -79,7 +79,7 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 
 # Criteria C: Development
 
-## List of techniques used
+## Existing tools (List of techniques used)
 
 ## Development
 
