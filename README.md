@@ -31,12 +31,12 @@ One of the main advantages of using KivyMD is that it allows developers to build
 SQL is designed to handle large amounts of data efficiently, making it an ideal choice for applications that need to store and manage a large amount of information. This makes it an ideal choice for applications that need to scale as they grow, as SQL databases can be easily expanded to meet the needs of the application. SQL databases allow for the storage of structured data, which can be easily queried and manipulated. This makes it easier to find the information you need, and to perform complex data analysis tasks. SQL databases are highly reliable, and offer features such as transaction management and data integrity to ensure that the data stored in the database remains accurate and up-to-date. This makes SQL an ideal choice for applications that need to store critical data that must be maintained even in the event of a power outage or other failure.[^5]
 
 ### Success Criteria
-1. The solution implements encryption of sensitive data inputted by the user.
+1. The solution validates the input for items to rent, so the datatable is well-organized.
 2. The application features a secure login system, enabling the user to protect their data. 
 3. The user is able to input various information pertaining to the rental equipment. 
 4. The solution affords the user the ability to effortlessly delete equipment records upon return. 
-5. The user is able to view a categorized list of borrowed equipment, organized by customer ID, type of rental equipment, and rental date. 
-6. The user has the capability to edit previously entered data within the application.
+5. The solution hashes the signup information entered by the user when trying to sign up.
+6. The user is able to log out, so the information is secure.
 
 # Criteria B: Design
 
