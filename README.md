@@ -250,6 +250,7 @@ The KivyMD code above shows a button to change the screen to Homescreen. Line 5 
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
+Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how the application function.
 
 [^1]: "Python." Wikipedia, Wikimedia Foundation, 10 Feb. 2023, https://en.wikipedia.org/wiki/Python.
 [^2]: "Why Choose Python." Python.org, Python Software Foundation, 10 Feb. 2023, https://www.python.org/about/gettingstarted/.
