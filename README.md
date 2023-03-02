@@ -79,7 +79,20 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 
 # Criteria C: Development
 
-## Existing tools (List of techniques used)
+## List of techniques used
+1. If-else statements: These are conditional statements that allow the program to make decisions based on certain conditions. If a condition is true, a certain block of code is executed, otherwise, another block of code is executed.
+2. Loops: These are used to repeat a certain block of code multiple times. There are different types of loops, such as for loops, while loops, and do-while loops.
+3. Functions: These are reusable blocks of code that can be called multiple times from different parts of a program. Functions usually take inputs, perform some operations on those inputs, and then return a result.
+4. Variables: These are containers for storing data values in a program. Variables can hold different types of data, such as numbers, strings, or boolean values.
+5. Arrays: These are used to store multiple values in a single variable. Arrays can be of different types, such as one-dimensional arrays or multi-dimensional arrays.
+6. Objects: These are complex data types that store data and methods related to a particular object or entity. Objects are typically used in object-oriented programming.
+7. Classes: These are templates for creating objects in object-oriented programming. A class defines the properties and behaviors of an object, and objects can be created from a class.
+8. Inheritance: This is a feature of object-oriented programming that allows a class to inherit properties and behaviors from another class.
+9. Polymorphism: This is another feature of object-oriented programming that allows objects of different classes to be treated as if they were of the same class, by using common interfaces or abstract classes.
+10. Recursion: This is a technique where a function calls itself to solve a problem by breaking it down into smaller subproblems. Recursion is used in many algorithms, such as sorting and searching.
+11. KivyMD: building UI using KivyMD library, including navigation, layouts, widgets, and animations
+12. SQLite: working with SQLite database, including creating tables, inserting, updating, and retrieving data, and using SQL queries to manipulate data
+13. Testing: writing and running tests to ensure code functionality and performance
 
 ## Development
 
