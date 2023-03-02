@@ -255,6 +255,14 @@ MDRaisedButton:
 ```
 The KivyMD code above shows a button to change the screen to Homescreen. Line 5 has a function "app.root.current" which allows us to switch between pages. I use the same code if needed to change the page using KivyMD.[^21][^24]
 
+### Accessing result run in console
+```.py
+def search(self, query):
+    result = self.cursor.execute(query).fetchall()
+    return result
+```
+The method above shows how to access the result when a query is run in console. This method is very useful as I need to run queries and get their results in many areas of development of my solution.
+
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
 Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how the application function.
