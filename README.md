@@ -302,3 +302,749 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 [^22]: "Dialog — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/dialog/index.html. Accessed Mar. 2 2023
 [^23]: "The CryptContext Class — Passlib v1.7.4 Documentation." Passlib, 2021, https://passlib.readthedocs.io/en/stable/lib/passlib.context.html#the-cryptcontext-class. Accessed Mar. 2 2023
 [^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
+
+# Appendix
+## Python code
+```.py
+# unit3_project.py
+import sqlite3
+
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.datatables import MDDataTable
+from kivymd.uix.dialog import MDDialog
+from passlib.context import CryptContext
+
+from kivymd.app import MDApp
+from kivymd.uix.screen import MDScreen
+
+from datetime import datetime
+
+pwd_config = CryptContext(schemes=["pbkdf2_sha256"],
+                          default="pbkdf2_sha256",
+                          pbkdf2_sha256__default_rounds=30000
+                          )
+
+# Function to hash a password
+def hash_password(user_password):
+    return pwd_config.hash(user_password)
+
+# Function to check if a password matches a hash
+def check_password(hashed_password, user_password):
+    return pwd_config.verify(user_password, hashed_password)
+
+# Class for handling login and signup database operations
+class database_handler_login_signup(MDApp):
+    def __init__(self, namedb: str):
+        self.connection = sqlite3.connect(namedb)
+        self.cursor = self.connection.cursor()
+
+    def run_save(self, query):
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    # Create the users table if it doesn't exist
+    def create_table(self):
+        query = f"""CREATE TABLE if not exists users(
+            id INTEGER PRIMARY KEY not NULL,
+            email text not NULL unique,
+            password text not NULL,
+            username text not NULL unique
+            )"""
+        self.run_query(query)
+
+    # Function to execute a console query
+    def run_query(self, query: str):
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    # Function to search the database
+    def search(self, query):
+        result = self.cursor.execute(query).fetchall()
+        return result
+
+    # Function to close the database
+    def close(self):
+        self.connection.close()
+
+    # Function to insert a new user into the database
+    def insert(self, email, username, password):
+        query = f"INSERT into users (email, password, username) VALUES ('{email}', '{password}', '{username}')"
+        self.run_query(query)
+
+# Class for handling item database operations
+class database_handler_items(MDApp):
+    def __init__(self, namedb: str):
+        self.connection = sqlite3.connect(namedb)
+        self.cursor = self.connection.cursor()
+
+    # Create the items table if it doesn't exist
+    def create_table(self):
+        query = f"""CREATE TABLE if not exists items(
+            id INTEGER PRIMARY KEY not NULL,
+            customer_id int,
+            date text,
+            item text,
+            size text,
+            item_id int
+            )"""
+        self.run_query(query)
+
+    # Function to execute a console query
+    def run_query(self, query: str):
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    # Function to search the database
+    def search(self, query):
+        result = self.cursor.execute(query).fetchall()
+        return result
+
+    # Function to close the database
+    def close(self):
+        self.connection.close()
+
+    # Function to insert a new item into the database
+    def insert(self, customer_id, date, item, size, item_id):
+        query = f"INSERT into items (customer_id, date, item, size, item_id) VALUES ('{customer_id}', '{date}', '{item}', '{size}', '{item_id}')"
+        self.run_query(query)
+
+    def run_save(self, query):
+        self.cursor.execute(query)
+        self.connection.commit()
+
+class LoginScreen(MDScreen):
+    # Define the __init__ method that initializes the object
+    def __init__(self, **kwargs):
+        # Call the parent class's __init__ method with any keyword arguments
+        super(LoginScreen, self).__init__(**kwargs)
+
+    # Define a method that handles login attempts
+    def try_login(self):
+        # Get the email and password entered by the user
+        email_entered = self.ids.email_in.text
+        pass_entered = self.ids.passwd_in.text
+
+        # Check if the email and password fields are empty
+        if email_entered == "":
+            # Set the error flag for the email field to True
+            self.ids.email_in.error = True
+
+        if pass_entered == "":
+            # Set the error flag for the password field to True
+            self.ids.passwd_in.error = True
+
+        else:
+            # Create a database handler object
+            db = database_handler_login_signup(namedb="unit3_project_database.db")
+            # Create a query to select the password associated with the email entered
+            query = f"SELECT password FROM users WHERE email = '{email_entered}'"
+            # Execute the query and get the result
+            result = db.search(query)
+            # Check if there is exactly one result
+            if len(result) == 1:
+                # Check if the entered password matches the one in the database
+                if check_password(result[0][0], pass_entered):
+                    # If the passwords match, print a success message, switch to the HomeScreen, and clear the email and password fields
+                    print(f"Login successfull")
+                    self.parent.current = "HomeScreen"
+                    self.ids.email_in.text = ""
+                    self.ids.passwd_in.text = ""
+                else:
+                    # Create and open the alert dialog to say that the email or password is wrong
+                    dialog = MDDialog(title="Login error",
+                                      text=f"Entered email or password is wrong")
+                    dialog.open()
+            else:
+                dialog = MDDialog(title="Login error",
+                                  text=f"Entered email or password is wrong")
+                dialog.open()
+
+    # Define a method that switches to the SignupScreen and clears the email and password fields
+    def try_signup(self):
+        self.parent.current = "SignupScreen"
+        self.ids.email_in.text = ""
+        self.ids.passwd_in.text = ""
+
+    # Define a method that toggles the visibility of the password field
+    def toggle_show_password(self):
+        # Invert the value of the show_password attribute
+        self.show_password = not self.show_password
+        # Set the password attribute of the password field to the opposite of the show_password attribute
+        self.ids.passwd_in.password = not self.show_password
+
+    # Define the build method that returns None
+    def build(self):
+        return None
+
+class SignupScreen(MDScreen):
+    def try_cancel(self):
+        # Change the current screen to LoginScreen and clear all the fields.
+        self.parent.current = "LoginScreen"
+        self.ids.e_passwd.text = ""
+        self.ids.c_passwd.text = ""
+        self.ids.uname.text = ""
+        self.ids.email.text = ""
+
+    def try_register(self):
+        # Get the passwords entered by the user.
+        passwd1 = self.ids.e_passwd.text
+        passwd2 = self.ids.c_passwd.text
+
+        # Check if the two passwords match. If not, set the error flag on both fields.
+        if passwd1 != passwd2:
+            self.ids.e_passwd.error = True
+            self.ids.c_passwd.error = True
+        else:
+            # Insert the new user into the database and change the current screen to LoginScreen.
+            db.insert(email=self.ids.email.text, username=self.ids.uname.text,
+                      password=hash_password(self.ids.c_passwd.text))
+            # Create and open the alert dialog to say that the account has created successfully
+            dialog = MDDialog(title="New account",
+                              text=f"The account has created successfully, please log in")
+            dialog.open()
+            self.parent.current = "LoginScreen"
+            self.ids.e_passwd.text = ""
+            self.ids.c_passwd.text = ""
+            self.ids.uname.text = ""
+            self.ids.email.text = ""
+
+    def toggle_show_password(self):
+        # Toggle the show_password flag and update the password visibility of both fields.
+        self.show_password = not self.show_password
+        self.ids.e_passwd.password = not self.show_password
+        self.ids.c_passwd.password = not self.show_password
+
+class HomeScreen(MDScreen):
+    # Function to log out the user
+    def try_logout(self):
+        print("User trying logging out")
+        self.parent.current = "LoginScreen"
+
+    # Function to add a new item
+    def try_newitem(self):
+        print("Trying adding new item")
+        self.parent.current = 'NewitemScreen'
+
+    def build(self):
+        return
+
+class NewitemScreen(MDScreen):
+    input_format = "%d-%m-%Y" # input format for date text field
+
+    def validate_date(self, text):
+        """
+        Validate the entered date
+        """
+        # Check if the entered text is a valid date in the specified format
+        try:
+            datetime.strptime(text, self.input_format)
+            print("Valid date entered!")
+        except ValueError:
+            self.ids.date.error = True
+
+    def validate_customer_id(self, text):
+        """
+        Validate the customer ID entered in the customer_id MDTextField.
+        """
+        try:
+            customer_id = int(text)
+        except ValueError:
+            self.ids.customer_id.error = True
+
+    def validate_size(self, text):
+        """
+        Validate the size entered in "size" MDTextField.
+        """
+        try:
+            size = float(text)
+        except ValueError:
+            self.ids.size.error = True
+
+    def validate_item_id(self, text):
+        """
+        Validate the item ID entered in the item_id MDTextField.
+        """
+        try:
+            item_id = int(text)
+        except ValueError:
+            self.ids.item_id.error = True
+
+    def try_add(self):
+        # Create a database handler object
+        db_items = database_handler_items(namedb="unit3_project_database.db")
+        # Insert the new item into the database
+        db_items.insert(self.ids.customer_id.text, self.ids.date.text, self.ids.item.text, self.ids.size.text, self.ids.item_id.text)
+        print("Item added")
+
+        # Create and open the alert dialog to confirm item has been added
+        dialog = MDDialog(title="Thank you, item added!", text=f"Your item ID: {self.ids.item_id.text} has been successfully added.")
+        dialog_buttons = [MDFlatButton(text="OK", on_release=dialog.dismiss, md_bg_color=[1, 1, 1, 1])]
+        dialog.buttons = dialog_buttons
+        dialog.open()
+
+        # Clear the input fields and switch to HomeScreen
+        self.ids.customer_id.text = ""
+        self.ids.date.text = ""
+        self.ids.item.text = ""
+        self.ids.size.text = ""
+        self.ids.item_id.text = ""
+        self.parent.current= 'HomeScreen'
+
+    def try_cancel(self):
+        # Clear the input fields and switch to HomeScreen
+        self.parent.current = 'HomeScreen'
+        self.ids.customer_id.text = ""
+        self.ids.date.text = ""
+        self.ids.item.text = ""
+        self.ids.size.text = ""
+        self.ids.item_id.text = ""
+
+    def build(self):
+        return
+
+class BorrowedItemsScreen(MDScreen):
+    # class_variable
+    data_table = None
+
+    def update(self):
+        # Read the database and update the table
+        db = database_handler_items("unit3_project_database.db")
+        query = "SELECT customer_id, date, item, size, item_id from items"
+        data = db.search(query)
+        print(data)
+        db.close()
+        self.data_table.update_row_data(None, data)
+
+    def delete(self):
+        # Function to delete checked rows in the table
+        checked_rows = self.data_table.get_row_checks() # Get the checked rows
+        print(checked_rows)
+        # delete
+        db = database_handler_items("unit3_project_database.db")
+        for r in checked_rows:
+            item_id = r[4]  # use item_id instead of id
+            print(item_id)
+            query = f"delete from items where item_id = {item_id}"  # use item_id instead of id
+            print(query)
+            db.run_save(query)
+            # Create and open the alert dialog to confirm item has been deleted
+            dialog = MDDialog(title="Thank you, item deleted!",
+                              text=f"Your item ID: {item_id} has been successfully deleted.")
+            dialog.open()
+        db.close()
+        self.update()
+
+    def on_pre_enter(self, *args):
+        # Code to run before the screen is created
+        self.data_table = MDDataTable(
+            size_hint=(.9, .75),
+            pos_hint={"center_x": .5, "center_y": .5},
+            use_pagination=True,
+            check=True,
+            background_color = "#689ebd",
+            # Title of the columns
+            column_data=[("Customer ID", 40),
+                         ("Date", 25),
+                         ("Kind", 25),
+                         ("Item ID", 20),
+                         ("Size", 50)]
+        )
+
+        # Add functions for events of the mouse
+        self.data_table.bind(on_check_press=self.check_pressed)
+        self.add_widget(self.data_table)  # Add the table to the GUI
+        self.update()
+
+    def check_pressed(self, table, current_row):
+        # Function to handle when a check mark is pressed
+        print("a check mark was pressed", current_row)
+
+class unit3_project(MDApp):
+    def build(self):
+        return
+
+db = database_handler_login_signup(namedb="unit3_project_database.db")
+db.create_table()
+
+db_items = database_handler_items(namedb="unit3_project_database.db")
+db_items.create_table()
+
+test = unit3_project()
+test.run()
+
+db.close()
+db_items.close()
+```
+## KivyMD code
+```.kv
+# login.kv
+
+ScreenManager:
+    LoginScreen:
+        name: "LoginScreen"
+
+    SignupScreen:
+        name: "SignupScreen"
+
+    HomeScreen:
+        name: "HomeScreen"
+
+    NewitemScreen:
+        name: "NewitemScreen"
+
+    BorrowedItemsScreen:
+        name: "BorrowedItemsScreen"
+
+<LoginScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDCard:
+        size_hint: .5, .9
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+        md_bg_color: "#EEE9DA"
+
+        MDLabel:
+            font_name: "avenir_regular.ttf"
+            text: "Login"
+            font_size: 30
+            size_hint: .3, .4
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint: 1, None
+            height: dp(120)
+
+            MDTextField:
+                id: email_in
+                hint_text: "Enter your email"
+                icon_left: "email"
+                helper_text_mode: "on_error"
+                helper_text: "Please enter email"
+
+            MDTextField:
+                id: passwd_in
+                hint_text: "Enter your password"
+                icon_left: "key"
+                password: not show_pass.active
+                helper_text_mode: "on_error"
+                helper_text: "Please enter password"
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint: 1, None
+                height: dp(40)
+                MDCheckbox:
+                    id: show_pass
+                    size_hint_x: 0.1
+                    on_active: passwd_in.password = not self.active
+                    active: False
+                MDLabel:
+                    text: "Show password"
+                    font_name: "avenir_regular.ttf"
+                    font_size: 18
+                    size_hint_x: 0.7
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, .1
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: login
+                text: "Login"
+                on_press: root.try_login()
+                size_hint: .3, .5
+                md_bg_color: "#689ebd"
+
+            MDLabel:
+                font_name: "avenir_regular.ttf"
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: signup
+                text: "Signup"
+                on_press: root.try_signup()
+                size_hint: .3, .5
+                md_bg_color: "#689ebd"
+
+<SignupScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDCard:
+        size_hint: .5, .9
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+        md_bg_color: "#EEE9DA"
+
+        MDLabel:
+            font_name: "avenir_regular.ttf"
+            text: "Signup"
+            font_size: 30
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDTextField:
+            id: uname
+            #required: True
+            hint_text: "Enter username"
+            icon_left: "account"
+
+        MDTextField:
+            id: email
+            #required: True
+            hint_text: "Enter your email"
+            icon_left: "email"
+
+        MDTextField:
+            id: e_passwd
+            #required: True
+            hint_text: "Enter password"
+            icon_left: "key"
+            password: True
+            helper_text_mode: "on_focus"
+            helper_text: "Password must be at least 8 characters"
+
+        MDTextField:
+            id: c_passwd
+            #required: True
+            hint_text: "Confirm password"
+            icon_left: "key"
+            password: True
+            helper_text_mode: "on_error"
+            helper_text: "Passwords don't match"
+
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, .1
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: signup_cancel
+                text: "Cancel"
+                on_press: root.try_cancel()
+                size_hint: .3, .7
+                md_bg_color: "#93BFCF"
+
+            MDLabel:
+                font_name: "avenir_regular.ttf"
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: signup
+                text: "Submit"
+                on_press: root.try_register()
+                size_hint: .3, .7
+                md_bg_color: "#689ebd"
+
+<HomeScreen>:
+    size: 500, 500
+
+    FitImage:
+        source: "background.png"
+
+    MDCard:
+        size_hint: .5, .9
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+        md_bg_color: "#EEE9DA"
+
+        MDLabel:
+            id: wlcm_msg
+            text: "Welcome to tracker"
+            font_name: "avenir_regular.ttf"
+            font_size: 30
+            size_hint: 1, .1
+            halign: "center"
+
+        MDBoxLayout:
+            size_hint: 1, .9
+            orientation: 'vertical'
+            padding: dp(50)
+
+
+            MDBoxLayout:
+                size_hint: (1, .15)
+                spacing: dp(40)
+                orientation: "vertical"
+
+                MDFillRoundFlatIconButton:
+                    text: 'New item'
+                    icon: 'plus-circle-outline'
+                    pos_hint: {'center_x': .5}
+                    md_bg_color: "#689ebd"
+                    font_name: "avenir_regular.ttf"
+                    on_press: root.try_newitem()
+
+                MDFillRoundFlatIconButton:
+                    text: 'Borrowed items list'
+                    icon: 'format-list-bulleted'
+                    pos_hint: {'center_x': .5}
+                    md_bg_color: "#689ebd"
+                    font_name: "avenir_regular.ttf"
+                    on_release: app.root.current = "BorrowedItemsScreen"
+
+                MDFillRoundFlatIconButton:
+                    text: 'Log out'
+                    icon: 'logout-variant'
+                    pos_hint: {'center_x': .5}
+                    on_press: app.root.current = 'LoginScreen'
+                    md_bg_color: "#689ebd"
+                    font_name: "avenir_regular.ttf"
+
+<NewitemScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDCard:
+        size_hint: .5, .9
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: "#EEE9DA"
+
+        MDBoxLayout:
+            size_hint: 1, .1
+            MDLabel:
+                text: "New item"
+                font_name: "avenir_regular.ttf"
+                font_size: 30
+                size_hint: 1, 1
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .3}
+
+        MDLabel:
+            size_hint: 1, .2
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint: 1, .85
+            padding: dp(30)
+
+            MDTextField:
+                id: customer_id
+                hint_text: "Customer ID"
+                icon_left: "account"
+                on_text_validate: root.validate_customer_id(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Customer ID must be a number"
+
+            MDTextField:
+                id: date
+                hint_text: "Date"
+                icon_left: "calendar"
+                multiline: False
+                on_text_validate: root.validate_date(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Date must be in this format: dd-mm-YYYY"
+
+            MDTextField:
+                id: item
+                hint_text: "Item"
+                icon_left: "shopping"
+                helper_text_mode: "on_error"
+                helper_text: "Item must be one of these:\nSki, Snowboard, Ski shoes, Snowboard boots,\nSki clothes, Snowboard clothes"
+
+            MDTextField:
+                id: size
+                hint_text: "Size"
+                icon_left: "resize"
+                on_text_validate: root.validate_size(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Size must be a number"
+
+            MDTextField:
+                id: item_id
+                hint_text: "Item ID"
+                icon_left: "barcode"
+                on_text_validate: root.validate_item_id(self.text)
+                helper_text_mode: "on_error"
+                helper_text: "Item ID must be a number"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: .7, .1
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: newitem_cancel
+                text: "Cancel"
+                on_press: root.try_cancel()
+                size_hint: .35, .7
+                md_bg_color: "#689ebd"
+
+            MDLabel:
+                size_hint: .3, 1
+                halign: "center"
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: newitem_submit
+                text: "Submit"
+                on_press: root.try_add()
+                size_hint: .35, .7
+                md_bg_color: "#689ebd"
+
+        MDLabel:
+            size_hint: 1, .05
+
+<BorrowedItemsScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDLabel:
+        size_hint: 1, .9
+
+    MDBoxLayout:
+        size_hint: 1, .1
+        orientation: "vertical"
+        MDLabel:
+            size_hint: 1, .05
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: .5, .1
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+
+            MDRaisedButton:
+                id: return_home
+                size_hint: .4, 1
+                text: "Return home"
+                on_press: app.root.current = "HomeScreen"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: "#689ebd"
+
+            MDLabel:
+                size_hint: .2, .1
+
+            MDRaisedButton:
+                id: delete
+                size_hint: .4, 1
+                text: "Delete"
+                on_press: root.delete()
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: "#689ebd"
+
+        MDLabel:
+            size_hint: 1, .1
+```
