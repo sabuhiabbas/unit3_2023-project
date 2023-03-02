@@ -167,6 +167,17 @@ def insert(self, email, username, password):
 ```
 The code above shows how to insert new user information to the database. I use this structure when I need to add new item to database as well.
 
+#### Show password method
+```.py
+# Define a method that toggles the visibility of the password field
+def toggle_show_password(self):
+    # Invert the value of the show_password attribute
+    self.show_password = not self.show_password
+    # Set the password attribute of the password field to the opposite of the show_password attribute
+    self.ids.passwd_in.password = not self.show_password
+```
+The code of show password method above helped me to make it easier for the user to show the entered password in login screen. This way the user can avoid from human errors.
+
 ### Success criteria 2: The application features a secure login system, enabling the user to protect their data
 Login system enables the user to login to the application when the user wants to use. This lets the user secure the data entered to the database in the application.
 #### KivyMD Text field
