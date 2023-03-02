@@ -115,7 +115,201 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 13. Testing: writing and running tests to ensure code functionality and performance.
 
 ## Development
+### Success criteria 1: The solution validates the input for items to rent, so the datatable is well-organized
+To have a structure for item details in the table, having validation for each input makes the table well-organized.
+#### Python
+```.py
+def validate_date(self, text):
+    """
+    Validate the entered date
+    """
+    # Check if the entered text is a valid date in the specified format
+    try:
+        datetime.strptime(text, self.input_format)
+        print("Valid date entered!")
+    except ValueError:
+        self.ids.date.error = True
 
+def validate_customer_id(self, text):
+    """
+    Validate the customer ID entered in the customer_id MDTextField.
+    """
+    try:
+        customer_id = int(text)
+    except ValueError:
+        self.ids.customer_id.error = True
+
+def validate_size(self, text):
+    """
+    Validate the size entered in "size" MDTextField.
+    """
+    try:
+        size = float(text)
+    except ValueError:
+        self.ids.size.error = True
+
+def validate_item_id(self, text):
+    """
+    Validate the item ID entered in the item_id MDTextField.
+    """
+    try:
+        item_id = int(text)
+    except ValueError:
+        self.ids.item_id.error = True
+```
+
+### Success criteria 2: The application features a secure login system, enabling the user to protect their data
+Login system enables the user to login to the application when the user wants to use. This lets the user secure the data entered to the database in the application.
+#### Python
+```.py
+# Define a method that handles login attempts
+def try_login(self):
+    # Get the email and password entered by the user
+    email_entered = self.ids.email_in.text
+    pass_entered = self.ids.passwd_in.text
+
+    # Check if the email and password fields are empty
+    if email_entered == "":
+        # Set the error flag for the email field to True
+        self.ids.email_in.error = True
+
+    if pass_entered == "":
+        # Set the error flag for the password field to True
+        self.ids.passwd_in.error = True
+
+    else:
+        # Create a database handler object
+        db = database_handler_login_signup(namedb="unit3_project_database.db")
+        # Create a query to select the password associated with the email entered
+        query = f"SELECT password FROM users WHERE email = '{email_entered}'"
+        # Execute the query and get the result
+        result = db.search(query)
+        # Check if there is exactly one result
+        if len(result) == 1:
+            # Check if the entered password matches the one in the database
+            if check_password(result[0][0], pass_entered):
+                # If the passwords match, print a success message, switch to the HomeScreen, and clear the email and password fields
+                print(f"Login successfull")
+                self.parent.current = "HomeScreen"
+                self.ids.email_in.text = ""
+                self.ids.passwd_in.text = ""
+            else:
+                # If the passwords don't match, print a message asking the user to try again
+                print("Try again")
+        else:
+            # If there is no result or more than one result, print a message asking the user to try again
+            print("Try again")
+```
+#### KivyMD
+```.kv
+<LoginScreen>:
+    size: 500, 500
+    FitImage:
+        source: "background.png"
+
+    MDCard:
+        size_hint: .5, .9
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+        md_bg_color: "#EEE9DA"
+
+        MDLabel:
+            font_name: "avenir_regular.ttf"
+            text: "Login"
+            font_size: 30
+            size_hint: .3, .4
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint: 1, None
+            height: dp(120)
+
+            MDTextField:
+                id: email_in
+                hint_text: "Enter your email"
+                icon_left: "email"
+                helper_text_mode: "on_error"
+                helper_text: "Please enter email"
+
+            MDTextField:
+                id: passwd_in
+                hint_text: "Enter your password"
+                icon_left: "key"
+                password: not show_pass.active
+                helper_text_mode: "on_error"
+                helper_text: "Please enter password"
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint: 1, None
+                height: dp(40)
+                MDCheckbox:
+                    id: show_pass
+                    size_hint_x: 0.1
+                    on_active: passwd_in.password = not self.active
+                    active: False
+                MDLabel:
+                    text: "Show password"
+                    font_name: "avenir_regular.ttf"
+                    font_size: 18
+                    size_hint_x: 0.7
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, .1
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: login
+                text: "Login"
+                on_press: root.try_login()
+                size_hint: .3, .5
+                md_bg_color: "#689ebd"
+
+            MDLabel:
+                font_name: "avenir_regular.ttf"
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                font_name: "avenir_regular.ttf"
+                id: signup
+                text: "Signup"
+                on_press: root.try_signup()
+                size_hint: .3, .5
+                md_bg_color: "#689ebd"
+```
+### Success criteria 3: The user is able to input various information pertaining to the rental equipment
+#### Python
+```.py
+def try_add(self):
+    # Create a database handler object
+    db_items = database_handler_items(namedb="unit3_project_database.db")
+    # Insert the new item into the database
+    db_items.insert(self.ids.customer_id.text, self.ids.date.text, self.ids.item.text, self.ids.size.text, self.ids.item_id.text)
+    print("Item added")
+
+    # Create and open the alert dialog to confirm item has been added
+    dialog = MDDialog(title="Thank you, item added!", text=f"Your item ID: {self.ids.item_id.text} has been successfully added.")
+    dialog_buttons = [MDFlatButton(text="OK", on_release=dialog.dismiss, md_bg_color=[1, 1, 1, 1])]
+    dialog.buttons = dialog_buttons
+    dialog.open()
+
+    # Clear the input fields and switch to HomeScreen
+    self.ids.customer_id.text = ""
+    self.ids.date.text = ""
+    self.ids.item.text = ""
+    self.ids.size.text = ""
+    self.ids.item_id.text = ""
+    self.parent.current= 'HomeScreen'
+```
+#### KivyMD
+```.kv
+
+```
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
