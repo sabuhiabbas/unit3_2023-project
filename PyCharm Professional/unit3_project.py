@@ -142,11 +142,14 @@ class LoginScreen(MDScreen):
                     self.ids.email_in.text = ""
                     self.ids.passwd_in.text = ""
                 else:
-                    # If the passwords don't match, print a message asking the user to try again
-                    print("Try again")
+                    # Create and open the alert dialog to say that the email or password is wrong
+                    dialog = MDDialog(title="Login error",
+                                      text=f"Entered email or password is wrong")
+                    dialog.open()
             else:
-                # If there is no result or more than one result, print a message asking the user to try again
-                print("Try again")
+                dialog = MDDialog(title="Login error",
+                                  text=f"Entered email or password is wrong")
+                dialog.open()
 
     # Define a method that switches to the SignupScreen and clears the email and password fields
     def try_signup(self):
@@ -187,13 +190,15 @@ class SignupScreen(MDScreen):
             # Insert the new user into the database and change the current screen to LoginScreen.
             db.insert(email=self.ids.email.text, username=self.ids.uname.text,
                       password=hash_password(self.ids.c_passwd.text))
-            print("New user")
+            # Create and open the alert dialog to say that the account has created successfully
+            dialog = MDDialog(title="New account",
+                              text=f"The account has created successfully, please log in")
+            dialog.open()
             self.parent.current = "LoginScreen"
             self.ids.e_passwd.text = ""
             self.ids.c_passwd.text = ""
             self.ids.uname.text = ""
             self.ids.email.text = ""
-
 
     def toggle_show_password(self):
         # Toggle the show_password flag and update the password visibility of both fields.
@@ -202,7 +207,6 @@ class SignupScreen(MDScreen):
         self.ids.c_passwd.password = not self.show_password
 
 class HomeScreen(MDScreen):
-
     # Function to log out the user
     def try_logout(self):
         print("User trying logging out")
@@ -217,7 +221,7 @@ class HomeScreen(MDScreen):
         return
 
 class NewitemScreen(MDScreen):
-    input_format = "%d-%m-%Y"
+    input_format = "%d-%m-%Y" # input format for date text field
 
     def validate_date(self, text):
         """
@@ -257,7 +261,7 @@ class NewitemScreen(MDScreen):
         except ValueError:
             self.ids.item_id.error = True
 
-    def try_submit(self):
+    def try_add(self):
         # Create a database handler object
         db_items = database_handler_items(namedb="unit3_project_database.db")
         # Insert the new item into the database
@@ -305,7 +309,7 @@ class BorrowedItemsScreen(MDScreen):
 
     def delete(self):
         # Function to delete checked rows in the table
-        checked_rows = self.data_table.get_row_checks()
+        checked_rows = self.data_table.get_row_checks() # Get the checked rows
         print(checked_rows)
         # delete
         db = database_handler_items("unit3_project_database.db")
@@ -333,7 +337,7 @@ class BorrowedItemsScreen(MDScreen):
             # Title of the columns
             column_data=[("Customer ID", 40),
                          ("Date", 25),
-                         ("Kind", 30),
+                         ("Kind", 25),
                          ("Item ID", 20),
                          ("Size", 50)]
         )

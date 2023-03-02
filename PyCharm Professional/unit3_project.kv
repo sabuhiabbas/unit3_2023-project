@@ -241,7 +241,6 @@ ScreenManager:
         pos_hint: {"center_x": .5, "center_y": .5}
         md_bg_color: "#EEE9DA"
 
-
         MDBoxLayout:
             size_hint: 1, .1
             MDLabel:
@@ -281,7 +280,6 @@ ScreenManager:
                 id: item
                 hint_text: "Item"
                 icon_left: "shopping"
-                on_text_validate: root.validate_item(self.text)
                 helper_text_mode: "on_error"
                 helper_text: "Item must be one of these:\nSki, Snowboard, Ski shoes, Snowboard boots,\nSki clothes, Snowboard clothes"
 
@@ -322,7 +320,7 @@ ScreenManager:
                 font_name: "avenir_regular.ttf"
                 id: newitem_submit
                 text: "Submit"
-                on_press: root.try_submit()
+                on_press: root.try_add()
                 size_hint: .35, .7
                 md_bg_color: "#689ebd"
 
