@@ -157,13 +157,12 @@ def validate_date(self, text):
     except ValueError:
         self.ids.date.error = True.
 ```
-This code shows how I validate an input. I use the same structure for other text fields as well.
+This code shows how I validate an input. I use the same structure for other text fields as well.[^8]
 
 ### Success criteria 2: The application features a secure login system, enabling the user to protect their data
 Login system enables the user to login to the application when the user wants to use. This lets the user secure the data entered to the database in the application.
 #### KivyMD Text field
 ```.kv
-
 MDTextField:
     id: email_in
     hint_text: "Enter your email"
@@ -171,7 +170,7 @@ MDTextField:
     helper_text_mode: "on_error"
     helper_text: "Please enter email"
 ```
-This piece of code shows how I create a text field and get an input from the user by using KivyMD. I use the same structure to get inputs in different places of codes.
+This piece of code shows how I create a text field and get an input from the user by using KivyMD. I use the same structure to get inputs in different places of codes.[^20]
 #### KivyMD Button
 ```.kv
 MDRaisedButton:
@@ -182,7 +181,7 @@ MDRaisedButton:
     size_hint: .3, .5
     md_bg_color: "#689ebd"
 ```
-This piece of code shows how I create a button to get a commmand from the user by using KivyMD. I use the same structure to get commands in different places of codes.
+This piece of code shows how I create a button to get a commmand from the user by using KivyMD. I use the same structure to get commands in different places of codes.[^21]
 
 ### Success criteria 4: The solution affords the user the ability to effortlessly delete equipment records upon return
 #### Deleting a row from the table
@@ -206,7 +205,7 @@ def delete(self):
     db.close()
     self.update()
 ```
-The code above how to access checked rows, a database, create and get result of a query. Additionaly, I use MDDiaolog to let the user know that the row has been deleted from the database. I use the same structure of code in different areas of my code if I need a pop-up diaolog.
+The code above how to access checked rows, a database, create and get result of a query. Additionaly, I use MDDiaolog to let the user know that the row has been deleted from the database. I use the same structure of code in different areas of my code if I need a pop-up diaolog.[^22]
 
 ### Success criteria 5: The solution hashes the signup information entered by the user when trying to sign up
 #### Hashing a string
@@ -226,7 +225,7 @@ def hash_password(user_password):
 def check_password(hashed_password, user_password):
     return pwd_config.verify(user_password, hashed_password)
 ```
-The code above shows two functions hash and check passwords used to hash the password when created a new account. The function check_password helps the app to check if the entered password in login screen matches with the hashed password in the database.
+The code above shows two functions hash and check passwords used to hash the password when created a new account. The function check_password helps the app to check if the entered password in login screen matches with the hashed password in the database.[^23]
 
 ### Success criteria 6: The user is able to log out, so the information is secure
 #### Change screens, leave screens
@@ -236,7 +235,7 @@ def try_logout(self):
     print("User trying logging out")
     self.parent.current = "LoginScreen"
 ```
-The code shows how to change screen using Python. I use the same code in different pages to switch between pages.
+The code shows how to change screen using Python. I use the same code in different pages to switch between pages.[^24]
 ```.kv
 MDRaisedButton:
   id: return_home
@@ -246,7 +245,7 @@ MDRaisedButton:
   pos_hint: {"center_x": .5, "center_y": .5}
   md_bg_color: "#689ebd"
 ```
-The KivyMD code above shows a button to change the screen to Homescreen. Line 5 has a function "app.root.current" which allows us to switch between pages. I use the same code if needed to change the page using KivyMD.
+The KivyMD code above shows a button to change the screen to Homescreen. Line 5 has a function "app.root.current" which allows us to switch between pages. I use the same code if needed to change the page using KivyMD.[^21][^24]
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
@@ -271,3 +270,8 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 [^17]: Wireframe.cc. N.p., n.d. Web. https://wireframe.cc/. Accessed Feb. 10 2023
 [^18]: "Online Diagramming and Visual Solution." Creately, Creately, https://creately.com/. Accessed Feb. 24 2023
 [^19]: "Diagrams.net." diagrams.net, 2023, https://www.diagrams.net/. Accessed 2 Mar. 2023
+[^20]: "Text Field — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/text-field/index.html. Accessed Mar. 2 2023
+[^21]: "Button — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/button/index.html. Accessed Mar. 2 2023
+[^22]: "Dialog — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/dialog/index.html. Accessed Mar. 2 2023
+[^23]: "The CryptContext Class — Passlib v1.7.4 Documentation." Passlib, 2021, https://passlib.readthedocs.io/en/stable/lib/passlib.context.html#the-cryptcontext-class. Accessed Mar. 2 2023
+[^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
