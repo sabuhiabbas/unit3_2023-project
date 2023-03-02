@@ -54,6 +54,21 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 <i>Figure x</i> -ER diagram for the database. As shown in the figure x, the database has 2 tables named "users" and "items." Shown on the left, the users table is to save users' username, email, and password. The table shown on the right saves the data of borrowed items: customer ID, date, kind, size, and item ID. Having a unique item ID for each item helps the user not to lend one item second time to another customer.[^18]
 
 ## UML Diagram
++----------------------------------------+
+|      database_handler_login_signup     |
++----------------------------------------+
+| - connection: sqlite3.Connection       |
+| - cursor: sqlite3.Cursor               |
++----------------------------------------+
+| + __init__(namedb: str)                |
+| + run_save(query: str)                 |
+| + create_table()                       |
+| + run_query(query: str)                |
+| + search(query: str) -> List[Tuple]    |
+| + close()                              |
+| + insert(email: str, username: str,    |
+|          password: str)                |
++----------------------------------------+
 
 ## Test Plan
 | Description | Type | Inputs | Outputs | 
