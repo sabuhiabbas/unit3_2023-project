@@ -49,13 +49,23 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 <i>Figure 2</i> - Wirefrime for the user interface. As shown in the figure 2, the application welcomes the user with a login page. If logged in, it will take the user to the homepage page. If pressed to "Sign up," the user find themselves in the sign up page. In the homepage page, the user can press "new item" and go to the new item page. If the user presses "borrowed items list" button, the app will change the page to the page where the user can see the list of borrowed equipments. The last button on the homepage page "log out" logs out the user and take them to login page back. In the new item page, the user can press save button after completing the form. It will take the user to the thank you page. If cancel is pressed, it will be taken to the homepage page. In thank you page, the user can either go to the list of borrowed items page or to the homepage. In the borrowed items list, the user is provided with the list of borrowed items from the shop. The user can go to the homepage from this page. Finally, in sign up page, the user can press register button to finsih the registration or login button to go back to the login page.[^17]
 
 ## Flow diagram
-### Flow diagram for create_table
+### Flow diagram for create_table (database_handler_login_signup class)
 <img src="https://user-images.githubusercontent.com/111758436/222377806-7220550d-357d-4b1c-ab3f-4902abed7a99.jpeg" alt="Flowchart_create_table" style="width:100%;height:auto;">
-<i>Figure 3</i> - Flow diagram for create_table method of database_handler_login_signup class. The method is used to create a table with the name "users" that contains columns email, username, email, and password. This is used when the program is run for the first time. If the table already exists, it doesn't create a new table.
+<p align="justify">
+  <i>Figure 3</i> - Flow diagram for create_table method of database_handler_login_signup class. The method is used to create a table with the name "users" that contains columns email, username, email, and password. This is used when the program is run for the first time. If the table already exists, it doesn't create a new table.
+</p>
 
-### Flow diagram for try_login
+### Flow diagram for try_login (LoginScreen class)
 <img src="https://user-images.githubusercontent.com/111758436/222398513-37b6aeaf-e966-4068-9208-8692f8585dd3.jpg" alt="Flowchart_try_login" style="width:100%;height:auto;">
-<i>Figure 4</i> - Flow diagram for try_login method of LoginScreen class. The method is used to login. It is able to compare the password with the password that is shown as hashed in the database. If entered email and password is correct, the method takes the user to Homescreen.
+<p align="justify">
+  <i>Figure 4</i> - Flow diagram for try_login method of LoginScreen class. The method is used to login. It is able to compare the password with the password that is shown as hashed in the database. If entered email and password is correct, the method takes the user to Homescreen.
+</p>
+
+### Flow diagram for on_pre_enter (BorrowedItemsScreen class)
+<img src="https://user-images.githubusercontent.com/111758436/222402110-b5b4fe78-d3fd-45ea-93c2-c0abf8d55c99.jpg" alt="Flowchart_on_pre_enter" style="width:100%;height:auto;">
+<p align="justify">
+  <i>Figure 5</i> - Flow diagram for on_pre_enter method of BorrowedItemsScreen. The method is used when the user wants to see the list of borrowed items. The method  that is called on_pre_enter works when the button "BorrowedItemsScreen" is pressed. As it can be seen from the figure 5, the method updates the table every time it is run.
+</p>
 
 ## ER Diagram
 ![ER_diagram](https://user-images.githubusercontent.com/111758436/221069445-e499566c-0956-4678-8704-b0b00b32315d.jpg)
