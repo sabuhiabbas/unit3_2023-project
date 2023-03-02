@@ -159,6 +159,14 @@ def validate_date(self, text):
 ```
 This code shows how I validate an input. I use the same structure for other text fields as well.[^8]
 
+#### Inserting values to database
+```.py
+def insert(self, email, username, password):
+    query = f"INSERT into users (email, password, username) VALUES ('{email}', '{password}', '{username}')"
+    self.run_query(query)
+```
+The code above shows how to insert new user information to the database. I use this structure when I need to add new item to database as well.
+
 ### Success criteria 2: The application features a secure login system, enabling the user to protect their data
 Login system enables the user to login to the application when the user wants to use. This lets the user secure the data entered to the database in the application.
 #### KivyMD Text field
