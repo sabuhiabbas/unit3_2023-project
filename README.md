@@ -139,7 +139,6 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 10. Recursion: This is a technique where a function calls itself to solve a problem by breaking it down into smaller subproblems. Recursion is used in many algorithms, such as sorting and searching.[^15]
 11. KivyMD: building UI using KivyMD library, including navigation, layouts, widgets, and animations.[^4]
 12. SQLite: working with SQLite database, including creating tables, inserting, updating, and retrieving data, and using SQL queries to manipulate data.[^5]
-13. Testing: writing and running tests to ensure code functionality and performance.
 
 ## Development
 ### Success criteria 1: The solution validates the input for items to rent, so the datatable is well-organized
