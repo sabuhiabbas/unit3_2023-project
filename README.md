@@ -54,7 +54,7 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 <i>Figure 3</i> - Flow diagram for create_table method of database_handler_login_signup class. The method is used to create a table with the name "users" that contains columns email, username, email, and password. This is used when the program is run for the first time. If the table already exists, it doesn't create a new table.
 
 ### Flow diagram for try_login
-<img src="https://user-images.githubusercontent.com/111758436/222396132-1181f12e-88de-44a4-b3af-d47bc7408d95.jpeg" alt="Flowchart_try_login" style="width:100%;height:auto;">
+<img src="https://user-images.githubusercontent.com/111758436/222398513-37b6aeaf-e966-4068-9208-8692f8585dd3.jpg" alt="Flowchart_try_login" style="width:100%;height:auto;">
 <i>Figure 4</i> - Flow diagram for try_login method of LoginScreen class. The method is used to login. It is able to compare the password with the password that is shown as hashed in the database. If entered email and password is correct, the method takes the user to Homescreen.
 
 ## ER Diagram
