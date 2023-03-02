@@ -51,11 +51,11 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 ## Flow diagram
 ## ER Diagram
 ![ER_diagram](https://user-images.githubusercontent.com/111758436/221069445-e499566c-0956-4678-8704-b0b00b32315d.jpg)
-<i>Figure x</i> - ER diagram for the database. As shown in the figure x, the database has 2 tables named "users" and "items." Shown on the left, the users table is to save users' username, email, and password. The table shown on the right saves the data of borrowed items: customer ID, date, kind, size, and item ID. Having a unique item ID for each item helps the user not to lend one item second time to another customer.[^18]
+<i>Figure 6</i> - ER diagram for the database. As shown in the figure x, the database has 2 tables named "users" and "items." Shown on the left, the users table is to save users' username, email, and password. The table shown on the right saves the data of borrowed items: customer ID, date, kind, size, and item ID. Having a unique item ID for each item helps the user not to lend one item second time to another customer.[^18]
 
 ## UML Diagram
 ![UML_diagram](https://user-images.githubusercontent.com/111758436/222324521-c8d27aa5-3c10-43c0-9a90-05e6bdbc6e37.jpg)
-<i>Figure x</i> - UML diagram for the classes used in the app.[^19]
+<i>Figure 7</i> - UML diagram for the classes used in the app. As you can see from the figure 7, all classes inherit from the main class MDApp and MDClasses.[^19]
 
 ## Test Plan
 | Description | Type | Inputs | Outputs | 
