@@ -78,6 +78,11 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 ## Test Plan
 | Description | Type | Inputs | Outputs | 
 | ----------- | ---- | ------ | ------- |
+Test if signup page works	|	Functional: Integration testing	|	Press "Sign up", use "j" for all text fields. Press "Submit".	|	Should bring to login screen
+Test if login page works	|	Functional: Integration testing	|	Enter "j" for email and password. Press "Login".	|	Should bring the user to Homescreen
+Testing if adding new item works	|	Functional: Integration testing	|	Enter 1, 03-02-2023, Ski, 170, 10987, respectively to the fields customer_id, date, item, size, item_id. Press submit.	|	Should pop up a dialog saying that the item ID: 10987 added to the borrowed items list.
+Check if code has good comments, variable and method names	|	Non-functional: Code review	|	N/A	|	The code should contain comments, good variable and method names.
+Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go to Borrowed Items screen.	|	The table should have the exact data as in database.
 
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
