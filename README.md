@@ -93,34 +93,35 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 4	|	Rationale for Proposed Solution	|	To make it easier for the developer to get client's approval to start the project.	|	20 mins.	|	2/10/2023	|	A
 5	|	Write Success Criteria	|	To make it easier for the developer to get client's approval to start the project.	|	20 mins.	|	2/10/2023	|	A
 6	|	Draw a system diagram	|	To have a clear idea of the hardware and software requirements for the proposed solution	|	1 hour	|	2/10/2023	|	B
-7	|	Draw a wireframe and write a brief explanation	|	To better understand how different screen pages look like in the app.	|	1 hour	|	2/10/2023	|	B
-8	|	Make a login page	|	Login page	|	1 hour	|	2/13/2023	|	C
-9	|	Make a signup page	|	Signup page with encryption feature to secure the password	|	1 hour	|	2/13/2023	|	C
-10	|	Draw an ER diagram and write a brief explanation	|	To illustrate the tables and attributes of the solution.	|	30 mins.	|	2/24/2023	|	B
-11	|	Make a homescreen page	|	Homescreen with features "New item", "Borrowed items list", and "Log out"	|	2 hours	|	2/24/2023	|	C
-12	|	Make a new item page	|	New item page to add a new borrowed item information to database 	|	1 hour	|	2/27/2023	|	C
-13	|	Make validations for text fields	|	Methods for each text field to validate input	|	2 hours	|	2/27/2023	|	C
-14	|	Make a thank you popup dialog	|	Page for thanking the user when added a new item to the list	|	1 hour	|	2/28/2023	|	C
-15	|	Make a borrowed items list page	|	Page that shows a table which has data of borrowed items list from the database	|	2 hours	|	3/1/2023	|	C
-16	|	Make a table for all items in database	|	Table for the borrowed items list page that shows all items in one table	|	45 mins.	|	3/1/2023	|	C
-17	|	Write the list of techiques used	|	List that contains what has been used during the development of the solution	|	15 mins.	|	3/2/2023	|	C
-18	|	Draw a UML diagram for all classes and write an explanation	|	A diagram showing how the product was developed with methods and atrributes of the solution	|	1 hour.	|	3/2/2023	|	B
-19	|	Draw a flow diagram and write an explanation	|	A flowchart for create_table method used for the development of the solution	|	15 mins.	|	3/2/2023	|	B
-20	|	Draw a flow diagram and write an explanation	|	A flowchart for create_table method used for the development of the solution	|	25 mins.	|	3/2/2023	|	B
+7	|	Meet the client	|	Having success criteria get confirmed	|	30 mins.	|	2/10/2023	|	A
+8	|	Draw a wireframe and write a brief explanation	|	To better understand how different screen pages look like in the app.	|	1 hour	|	2/10/2023	|	B
+9	|	Make a login page	|	Login page	|	1 hour	|	2/13/2023	|	C
+10	|	Make a signup page	|	Signup page with encryption feature to secure the password	|	1 hour	|	2/13/2023	|	C
+11	|	Draw an ER diagram and write a brief explanation	|	To illustrate the tables and attributes of the solution.	|	30 mins.	|	2/24/2023	|	B
+12	|	Make a homescreen page	|	Homescreen with features "New item", "Borrowed items list", and "Log out"	|	2 hours	|	2/24/2023	|	C
+13	|	Make a new item page	|	New item page to add a new borrowed item information to database 	|	1 hour	|	2/27/2023	|	C
+14	|	Make validations for text fields	|	Methods for each text field to validate input	|	2 hours	|	2/27/2023	|	C
+15	|	Make a thank you popup dialog	|	Page for thanking the user when added a new item to the list	|	1 hour	|	2/28/2023	|	C
+16	|	Make a borrowed items list page	|	Page that shows a table which has data of borrowed items list from the database	|	2 hours	|	3/1/2023	|	C
+17	|	Make a table for all items in database	|	Table for the borrowed items list page that shows all items in one table	|	45 mins.	|	3/1/2023	|	C
+18	|	Write the list of techiques used	|	List that contains what has been used during the development of the solution	|	15 mins.	|	3/2/2023	|	C
+19	|	Draw a UML diagram for all classes and write an explanation	|	A diagram showing how the product was developed with methods and atrributes of the solution	|	1 hour.	|	3/2/2023	|	B
+20	|	Draw a flow diagram and write an explanation	|	A flowchart for create_table method used for the development of the solution	|	15 mins.	|	3/2/2023	|	B
 21	|	Draw a flow diagram and write an explanation	|	A flowchart for create_table method used for the development of the solution	|	25 mins.	|	3/2/2023	|	B
-22	|	Test if login page works	|	Successful login	|	5 mins.	|	3/2/2023	|	B
-23	|	Test if signup page works	|	Successful signup	|	5 mins.	|	3/2/2023	|	B
-24	|	Testing if adding new item works	|	Successful adding new item	|	5 mins.	|	3/2/2023	|	B
-25	|	Check if code has good comments, variable and method names	|	Having good comments for code and appropriate variable, method names	|	10 mins.	|	3/2/2023	|	B
-26	|	Check if table shows the correct data	|	Table, showing the exact data as the database	|	5 mins.	|	3/2/2023	|	B
-27	|	Create test plan	|	Tets plan table with test type, input, and output	|	10 mins.	|	3/2/2023	|	B
-28	|	Add development of success criteria 1 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
-29	|	Add development of success criteria 2 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
-30	|	Add development of success criteria 3 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
-31	|	Add development of success criteria 4 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
-32	|	Add development of success criteria 5 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
-33	|	Add development of success criteria 6 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
-34	|	Record and upload a video of max. 4 min. length, presenting the application.	|	A video, showing how the application functions. Last 30 seconds should be focused on well-organization of code.	|	10 mins.	|	3/2/2023	|	D
+22	|	Draw a flow diagram and write an explanation	|	A flowchart for create_table method used for the development of the solution	|	25 mins.	|	3/2/2023	|	B
+23	|	Test if login page works	|	Successful login	|	5 mins.	|	3/2/2023	|	B
+24	|	Test if signup page works	|	Successful signup	|	5 mins.	|	3/2/2023	|	B
+25	|	Testing if adding new item works	|	Successful adding new item	|	5 mins.	|	3/2/2023	|	B
+26	|	Check if code has good comments, variable and method names	|	Having good comments for code and appropriate variable, method names	|	10 mins.	|	3/2/2023	|	B
+27	|	Check if table shows the correct data	|	Table, showing the exact data as the database	|	5 mins.	|	3/2/2023	|	B
+28	|	Create test plan	|	Tets plan table with test type, input, and output	|	10 mins.	|	3/2/2023	|	B
+29	|	Add development of success criteria 1 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
+30	|	Add development of success criteria 2 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
+31	|	Add development of success criteria 3 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
+32	|	Add development of success criteria 4 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
+33	|	Add development of success criteria 5 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
+34	|	Add development of success criteria 6 to the documentation	|	Paragraph showing how the solution to the problem was developed.	|	10 mins.	|	3/2/2023	|	C
+35	|	Record and upload a video of max. 4 min. length, presenting the application.	|	A video, showing how the application functions. Last 30 seconds should be focused on well-organization of code.	|	10 mins.	|	3/2/2023	|	D
 
 
 # Criteria C: Development
