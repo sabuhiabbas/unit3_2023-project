@@ -266,7 +266,7 @@ def try_logout(self):
     print("User trying logging out")
     self.parent.current = "LoginScreen"
 ```
-The code shows how to change screen using Python. I use the same code in different pages to switch between pages.[^24]
+The code above demonstrates how to log out a user and switch to the LoginScreen page by changing the parent's current attribute to "LoginScreen". This code structure is used in various parts of the application to enable switching between different pages.[^24]
 ```.kv
 MDRaisedButton:
   id: return_home
@@ -276,7 +276,7 @@ MDRaisedButton:
   pos_hint: {"center_x": .5, "center_y": .5}
   md_bg_color: "#689ebd"
 ```
-The KivyMD code above shows a button to change the screen to Homescreen. Line 5 has a function "app.root.current" which allows us to switch between pages. I use the same code if needed to change the page using KivyMD.[^21][^24]
+The code snippet above is an example of how to create a KivyMD button and link it to a function that changes the current screen to the "HomeScreen". The function app.root.current is used to set the current screen of the app to the desired screen. This code structure is used in different parts of the app to create buttons that navigate to different screens.[^21][^24]
 
 ### Accessing result run in console
 ```.py
@@ -284,7 +284,15 @@ def search(self, query):
     result = self.cursor.execute(query).fetchall()
     return result
 ```
-The method above shows how to access the result when a query is run in console. This method is very useful as I need to run queries and get their results in many areas of development of my solution.
+The code above demonstrates a method that allows you to retrieve the results of a query that was executed in the console. This method is helpful as it enables me to run queries and retrieve their output in various parts of my application.
+
+### Pop-up diolog
+```.py
+dialog = MDDialog(title="Thank you, item deleted!",
+                         text=f"Your item ID: {item_id} has been successfully deleted.")
+dialog.open()
+```
+This code creates a dialog box using KivyMD to notify the user that an item has been successfully deleted from the database. It takes the item ID as input and displays it in the dialog box. This code is reusable in different parts of the application where a similar confirmation dialog box is needed.
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
