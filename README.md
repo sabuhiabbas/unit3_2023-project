@@ -304,6 +304,8 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 [^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
 
 # Appendix
+## Success criteria confirmation by the client
+![Success_criteria_confirmation](https://user-images.githubusercontent.com/111758436/222607119-ad790fe6-f842-4692-8bbb-9d64e6ff16dc.png)
 ## Python code
 ```.py
 # unit3_project.py
