@@ -42,38 +42,50 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 
 ## System Diagram
 ![System diagram for skisnowboard rental shop tracker](https://user-images.githubusercontent.com/111758436/218088249-14279bc6-a1fe-40fd-98bb-fd0d3174b344.png)
-<i>Figure 1</i> - System diagram for the application. As shown in the figure 1, the application uses PyCharm and KivyMD Library to develop the program. Shown with arrows, it stores the data in unit3_project_database.db, using the SQLite database engine.[^16]
+<i>Figure 1</i> - The system diagram for the application is illustrated in Figure 1. The development of the program is achieved through the use of PyCharm and the KivyMD library. Data is stored in unit3_project_database.db, which is facilitated by the SQLite database engine. The arrows in the diagram indicate the flow of data between the various components of the application.[^16]
 
 ## Wireframe
 ![unit3_project_wireframe (1)](https://user-images.githubusercontent.com/111758436/218105085-c54acaf6-3e25-42ba-a799-c51b652a95ae.png)
-<i>Figure 2</i> - Wirefrime for the user interface. As shown in the figure 2, the application welcomes the user with a login page. If logged in, it will take the user to the homepage page. If pressed to "Sign up," the user find themselves in the sign up page. In the homepage page, the user can press "new item" and go to the new item page. If the user presses "borrowed items list" button, the app will change the page to the page where the user can see the list of borrowed equipments. The last button on the homepage page "log out" logs out the user and take them to login page back. In the new item page, the user can press save button after completing the form. It will take the user to the thank you page. If cancel is pressed, it will be taken to the homepage page. In thank you page, the user can either go to the list of borrowed items page or to the homepage. In the borrowed items list, the user is provided with the list of borrowed items from the shop. The user can go to the homepage from this page. Finally, in sign up page, the user can press register button to finsih the registration or login button to go back to the login page.[^17]
+<i>Figure 2</i> - The wireframe for the user interface is depicted in Figure 2. Upon launching the application, the user is welcomed with a login page. After successful login, the user is redirected to the homepage, where they can navigate to various pages through the buttons provided. Pressing the "Sign up" button on the login page takes the user to the sign-up page.
+
+The homepage provides the user with four buttons, namely "new item," "borrowed items list," "log out," and "return item." Clicking on the "new item" button leads the user to the new item page where they can fill out a form to add a new item. Once the form is completed, the user can either press "save" to proceed to the thank you page or "cancel" to go back to the homepage.
+
+The "borrowed items list" button on the homepage takes the user to a page where they can view a list of borrowed equipment. From this page, the user can go back to the homepage by clicking on the "home" button.
+
+In the sign-up page, the user can either press "register" to complete the registration process or "login" to go back to the login page.
+
+In the thank you page, the user is given the option to either go back to the homepage or view the list of borrowed items. Overall, the user interface is designed to be user-friendly and intuitive, making it easy for users to navigate and perform tasks.[^17]
 
 ## Flow diagram
 ### Flow diagram for create_table (database_handler_login_signup class)
 <img src="https://user-images.githubusercontent.com/111758436/222377806-7220550d-357d-4b1c-ab3f-4902abed7a99.jpeg" alt="Flowchart_create_table" style="width:100%;height:auto;">
 <p align="justify">
-  <i>Figure 3</i> - Flow diagram for create_table method of database_handler_login_signup class. The method is used to create a table with the name "users" that contains columns email, username, email, and password. This is used when the program is run for the first time. If the table already exists, it doesn't create a new table.
+  <i>Figure 3</i> - The flow diagram for the create_table method of the database_handler_login_signup class is shown in Figure 3. This method is used to create a table with the name "users" that contains four columns, namely email, username, password, and user_type. This table is created only when the program is run for the first time, and if the table already exists, the method does not create a new table. The create_table method is an essential part of the database_handler_login_signup class as it sets up the necessary table for the program to function correctly.
 </p>
 
 ### Flow diagram for try_login (LoginScreen class)
 <img src="https://user-images.githubusercontent.com/111758436/222398513-37b6aeaf-e966-4068-9208-8692f8585dd3.jpg" alt="Flowchart_try_login" style="width:100%;height:auto;">
 <p align="justify">
-  <i>Figure 4</i> - Flow diagram for try_login method of LoginScreen class. The method is used to login. It is able to compare the password with the password that is shown as hashed in the database. If entered email and password is correct, the method takes the user to Homescreen.
+  <i>Figure 4</i> - The try_login method of the LoginScreen class is used to authenticate the user's login credentials. It takes in the user's email and password as input, and then retrieves the hashed password from the "users" table in the database using the get_password_from_email() method from the database_handler_login_signup class. The try_login method is a crucial part of the LoginScreen class as it ensures that only authorized users are granted access to the application's features.
 </p>
 
 ### Flow diagram for on_pre_enter (BorrowedItemsScreen class)
 <img src="https://user-images.githubusercontent.com/111758436/222402110-b5b4fe78-d3fd-45ea-93c2-c0abf8d55c99.jpg" alt="Flowchart_on_pre_enter" style="width:100%;height:auto;">
 <p align="justify">
-  <i>Figure 5</i> - Flow diagram for on_pre_enter method of BorrowedItemsScreen. The method is used when the user wants to see the list of borrowed items. The method  that is called on_pre_enter works when the button "BorrowedItemsScreen" is pressed. As it can be seen from the figure 5, the method updates the table every time it is run.
+  <i>Figure 5</i> - The on_pre_enter method of the BorrowedItemsScreen class is a crucial function that is triggered when the user clicks the "BorrowedItemsScreen" button to view a list of borrowed items. As demonstrated in Figure 5, this method updates the displayed table each time it is run to ensure that the user is presented with the most current information from the database. on_pre_enter method of the BorrowedItemsScreen class is instrumental in providing the user with a smooth and up-to-date experience when interacting with the application.
 </p>
 
 ## ER Diagram
 ![ER_diagram](https://user-images.githubusercontent.com/111758436/221069445-e499566c-0956-4678-8704-b0b00b32315d.jpg)
-<i>Figure 6</i> - ER diagram for the database. As shown in the figure x, the database has 2 tables named "users" and "items." Shown on the left, the users table is to save users' username, email, and password. The table shown on the right saves the data of borrowed items: customer ID, date, kind, size, and item ID. Having a unique item ID for each item helps the user not to lend one item second time to another customer.[^18]
+<i>Figure 6</i> - The ER diagram for the database used by the application is shown in Figure 6. The database consists of two tables, "users" and "items". The "users" table, which is located on the left side of the diagram, stores the user information, including their username, email, and password.
+
+On the right side of the diagram, the "items" table is shown. This table is used to store data related to borrowed items, such as customer ID, date, kind, size, and item ID. Each item in the table is assigned a unique item ID to prevent a single item from being lent out to multiple customers simultaneously.[^18]
 
 ## UML Diagram
 ![UML_diagram](https://user-images.githubusercontent.com/111758436/222324521-c8d27aa5-3c10-43c0-9a90-05e6bdbc6e37.jpg)
-<i>Figure 7</i> - UML diagram for the classes used in the app. As you can see from the figure 7, all classes inherit from the main class MDApp and MDClasses.[^19]
+<i>Figure 7</i> - The UML diagram in Figure 7 illustrates the class hierarchy used in the application. All classes are designed to inherit from the main class MDApp and MDClasses. This inheritance hierarchy is shown in the diagram, which clearly illustrates the relationships between the various classes and their properties.
+
+In the diagram, each class is represented by a rectangle containing the class name, attributes, and methods. Arrows between the classes denote inheritance relationships, with child classes located beneath their parent classes.[^19]
 
 ## Test Plan
 | Description | Type | Inputs | Outputs | 
@@ -143,7 +155,7 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 
 ## Development
 ### Success criteria 1: The solution validates the input for items to rent, so the datatable is well-organized
-To have a structure for item details in the table, having validation for each input makes the table well-organized.
+In order to ensure a well-organized structure for the item details in the table, validation for each input is necessary. This approach provides a systematic way of organizing the data and ensures that only valid inputs are stored in the table.
 #### Validating
 ```.py
 def validate_date(self, text):
@@ -157,7 +169,7 @@ def validate_date(self, text):
     except ValueError:
         self.ids.date.error = True.
 ```
-This code shows how I validate an input. I use the same structure for other text fields as well.[^8]
+The code above illustrates the method used to validate input fields. This validation structure is implemented for each text field in the application to ensure data accuracy and consistency.[^8]
 
 #### Inserting values to database
 ```.py
@@ -165,7 +177,7 @@ def insert(self, email, username, password):
     query = f"INSERT into users (email, password, username) VALUES ('{email}', '{password}', '{username}')"
     self.run_query(query)
 ```
-The code above shows how to insert new user information to the database. I use this structure when I need to add new item to database as well.
+The code shown above demonstrates how to insert new user data into the database. This same structure is also applied when I need to insert a new item into the database.
 
 #### Show password method
 ```.py
@@ -176,10 +188,10 @@ def toggle_show_password(self):
     # Set the password attribute of the password field to the opposite of the show_password attribute
     self.ids.passwd_in.password = not self.show_password
 ```
-The code of show password method above helped me to make it easier for the user to show the entered password in login screen. This way the user can avoid from human errors.
+The code defines a method that allows for the visibility of the password field to be toggled. This helped me to make it easier for the user to avoid human errors when entering their password on the login screen. When called, the method inverts the value of the show_password attribute and sets the password attribute of the password field to the opposite of the show_password attribute.
 
 ### Success criteria 2: The application features a secure login system, enabling the user to protect their data
-Login system enables the user to login to the application when the user wants to use. This lets the user secure the data entered to the database in the application.
+The login system provides a secure way for users to access the application, protecting the data they enter and store in the application's database. Users can log in whenever they need to use the application, ensuring the safety and confidentiality of their information.
 #### KivyMD Text field
 ```.kv
 MDTextField:
@@ -189,7 +201,7 @@ MDTextField:
     helper_text_mode: "on_error"
     helper_text: "Please enter email"
 ```
-This piece of code shows how I create a text field and get an input from the user by using KivyMD. I use the same structure to get inputs in different places of codes.[^20]
+This piece of code shows the use of KivyMD to create a text field for obtaining user input. The text field includes a hint text to indicate the expected input, an icon on the left side to signify the type of input, and a helper text that appears in case of an error. This structure is used throughout the development of my solution for user inputs.[^20]
 #### KivyMD Button
 ```.kv
 MDRaisedButton:
@@ -200,7 +212,7 @@ MDRaisedButton:
     size_hint: .3, .5
     md_bg_color: "#689ebd"
 ```
-This piece of code shows how I create a button to get a commmand from the user by using KivyMD. I use the same structure to get commands in different places of codes.[^21]
+The code above demonstrates how a button is created and utilized to obtain a command from the user via KivyMD. This structure is implemented throughout the code to obtain commands from the user in different places of my code.[^21]
 
 ### Success criteria 4: The solution affords the user the ability to effortlessly delete equipment records upon return
 #### Deleting a row from the table
@@ -224,7 +236,7 @@ def delete(self):
     db.close()
     self.update()
 ```
-The code above how to access checked rows, a database, create and get result of a query. Additionaly, I use MDDiaolog to let the user know that the row has been deleted from the database. I use the same structure of code in different areas of my code if I need a pop-up diaolog.[^22]
+The above code shows how to delete checked rows from a table in the database. The code accesses the checked rows using the get_row_checks() function, deletes them using a loop and a delete query. The code also uses the MDDialog function to create an alert dialog to inform the user that the item has been deleted. This structure is used in other areas of the code to display pop-up dialogs.[^22]
 
 ### Success criteria 5: The solution hashes the signup information entered by the user when trying to sign up
 #### Hashing a string
@@ -244,7 +256,7 @@ def hash_password(user_password):
 def check_password(hashed_password, user_password):
     return pwd_config.verify(user_password, hashed_password)
 ```
-The code above shows two functions hash and check passwords used to hash the password when created a new account. The function check_password helps the app to check if the entered password in login screen matches with the hashed password in the database.[^23]
+The above code demonstrates how to hash a string using the passlib library. The hash_password() function takes a user password as an input and returns the hashed password. The check_password() function is used to verify whether a user-entered password matches the hashed password stored in the database during the login process. These functions ensure that passwords are securely stored in the database and cannot be accessed by unauthorized users.[^23]
 
 ### Success criteria 6: The user is able to log out, so the information is secure
 #### Change screens, leave screens
