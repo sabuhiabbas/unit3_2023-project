@@ -9,6 +9,8 @@ from passlib.context import CryptContext
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 
+import email_validator
+import re
 from datetime import datetime
 
 pwd_config = CryptContext(schemes=["pbkdf2_sha256"],
@@ -169,6 +171,19 @@ class LoginScreen(MDScreen):
         return None
 
 class SignupScreen(MDScreen):
+    def validate_email(self, email):
+        try:
+            # Validate the email using email_validator module
+            email_validator.validate_email(email)
+            return True
+        except:
+            return False
+
+    def validate_username(self, username):
+        if not username:
+            return False
+        return True
+
     def try_cancel(self):
         # Change the current screen to LoginScreen and clear all the fields.
         self.parent.current = "LoginScreen"
@@ -182,23 +197,57 @@ class SignupScreen(MDScreen):
         passwd1 = self.ids.e_passwd.text
         passwd2 = self.ids.c_passwd.text
 
+        username = self.ids.uname.text
+        if not self.validate_username(username=username):
+            # Show error message if username is blank
+            self.ids.uname.error = True
+            return
+
+        email = self.ids.email.text
+        # Validate the email
+        if not self.validate_email(email):
+            # Show error message if email is invalid
+            self.ids.email.error = True
+            return
+
+        if not passwd1 or not passwd2:
+            dialog = MDDialog(title="Empty Password",
+                              text="Password fields cannot be empty.")
+            dialog.open()
+            return
+
+        pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}$'
+
+        # Check if the password matches the pattern
+        if not re.match(pattern, passwd1):
+            self.ids.e_passwd.error = True
+            dialog = MDDialog(title="Password doesn't meet the requirements",
+                              text="The password entered must be:\n- At least 8 characters,\n- One capital letter,\n- One lowercase letter,\n- One symbol: !@#$%^&*()_+")
+            dialog.open()
+            return
+
         # Check if the two passwords match. If not, set the error flag on both fields.
         if passwd1 != passwd2:
             self.ids.e_passwd.error = True
             self.ids.c_passwd.error = True
-        else:
-            # Insert the new user into the database and change the current screen to LoginScreen.
-            db.insert(email=self.ids.email.text, username=self.ids.uname.text,
-                      password=hash_password(self.ids.c_passwd.text))
-            # Create and open the alert dialog to say that the account has created successfully
-            dialog = MDDialog(title="New account",
-                              text=f"The account has created successfully, please log in")
+            dialog = MDDialog(title="Password mismatch",
+                              text="The passwords entered do not match.")
             dialog.open()
-            self.parent.current = "LoginScreen"
-            self.ids.e_passwd.text = ""
-            self.ids.c_passwd.text = ""
-            self.ids.uname.text = ""
-            self.ids.email.text = ""
+            return
+
+        # Insert the new user into the database and change the current screen to LoginScreen.
+        db.insert(email=self.ids.email.text, username=self.ids.uname.text,
+                  password=hash_password(self.ids.c_passwd.text))
+        # Create and open the alert dialog to say that the account has created successfully
+
+        dialog = MDDialog(title="New account",
+                          text=f"The account with the username {username} has created successfully, please log in to your account")
+        dialog.open()
+        self.parent.current = "LoginScreen"
+        self.ids.e_passwd.text = ""
+        self.ids.c_passwd.text = ""
+        self.ids.uname.text = ""
+        self.ids.email.text = ""
 
     def toggle_show_password(self):
         # Toggle the show_password flag and update the password visibility of both fields.
@@ -207,10 +256,34 @@ class SignupScreen(MDScreen):
         self.ids.c_passwd.password = not self.show_password
 
 class HomeScreen(MDScreen):
+
     # Function to log out the user
     def try_logout(self):
-        print("User trying logging out")
+        # Create an MDDialog to confirm whether the user wants to sign out or not
+        self.sign_out_confirmation_dialog = MDDialog(
+            title="Log Out",
+            text="Are you sure you want to log out?",
+            buttons=[
+                MDFlatButton(
+                    text="Yes",
+                    on_release=self.log_out_user
+                ),
+                MDFlatButton(
+                    text="No",
+                    on_release=self.dismiss_dialog
+                ),
+            ],
+        )
+        self.sign_out_confirmation_dialog.open()
+
+    def log_out_user(self, instance):
+        # Perform the signout actions
+        print("User logging out")
         self.parent.current = "LoginScreen"
+        self.sign_out_confirmation_dialog.dismiss()
+
+    def dismiss_dialog(self, instance):
+        self.sign_out_confirmation_dialog.dismiss()
 
     # Function to add a new item
     def try_newitem(self):

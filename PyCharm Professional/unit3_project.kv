@@ -1,4 +1,4 @@
-# login.kv
+# unit3_project.kv
 
 ScreenManager:
     LoginScreen:
@@ -122,21 +122,22 @@ ScreenManager:
             #required: True
             hint_text: "Enter username"
             icon_left: "account"
+            helper_text_mode: "on_error"
+            helper_text: "Please enter a username"
 
         MDTextField:
             id: email
             #required: True
             hint_text: "Enter your email"
             icon_left: "email"
+            helper_text_mode: "on_error"
+            helper_text: "Invalid email"
 
         MDTextField:
             id: e_passwd
-            #required: True
             hint_text: "Enter password"
             icon_left: "key"
             password: True
-            helper_text_mode: "on_focus"
-            helper_text: "Password must be at least 8 characters"
 
         MDTextField:
             id: c_passwd
@@ -144,9 +145,6 @@ ScreenManager:
             hint_text: "Confirm password"
             icon_left: "key"
             password: True
-            helper_text_mode: "on_error"
-            helper_text: "Passwords don't match"
-
 
         MDBoxLayout:
             orientation: "horizontal"
@@ -225,7 +223,7 @@ ScreenManager:
                     text: 'Log out'
                     icon: 'logout-variant'
                     pos_hint: {'center_x': .5}
-                    on_press: app.root.current = 'LoginScreen'
+                    on_press: root.try_logout()
                     md_bg_color: "#689ebd"
                     font_name: "avenir_regular.ttf"
 
