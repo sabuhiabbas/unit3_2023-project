@@ -201,7 +201,7 @@ MDTextField:
     helper_text_mode: "on_error"
     helper_text: "Please enter email"
 ```
-This piece of code shows the use of KivyMD to create a text field for obtaining user input. The text field includes a hint text to indicate the expected input, an icon on the left side to signify the type of input, and a helper text that appears in case of an error. This structure is used throughout the development of my solution for user inputs.[^20]
+This piece of code shows the use of KivyMD to create a text field for obtaining user input. The text field includes a hint text to indicate the expected input, an icon on the left side to signify the type of input, and a helper text that appears in case of an error. This structure is used throughout the development of my solution for user inputs (eg. Adding new item to the database, which is the 3rd success criteria for the user).[^20]
 #### KivyMD Button
 ```.kv
 MDRaisedButton:
