@@ -33,7 +33,7 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 ### Success Criteria
 1. The solution validates the input for items to rent, so the datatable is well-organized.
 2. The application features a secure login system, enabling the user to protect their data. 
-3. The user is able to input various information pertaining to the rental equipment. 
+3. The user is able to input various information (Customer ID, Date, Item type, Size, Item ID) relating to the rental equipment. 
 4. The solution affords the user the ability to effortlessly delete equipment records upon return. 
 5. The solution hashes the signup information entered by the user when trying to sign up.
 6. The user can only sign up if the password meets the minimum password requirements.
