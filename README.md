@@ -33,10 +33,10 @@ SQL is designed to handle large amounts of data efficiently, making it an ideal 
 ### Success Criteria
 1. The solution validates the input for items to rent, so the datatable is well-organized.
 2. The application features a secure login system, enabling the user to protect their data. 
-3. The user is able to input various information (Customer ID, Date, Item type, Size, Item ID) relating to the rental equipment. 
-4. The solution affords the user the ability to effortlessly delete equipment records upon return. 
+3. The user can enter various information (Customer ID, Date, Item type, Size, Item ID) relating to the rental equipment. 
+4. The user can delete an equipment records when returned. 
 5. The solution hashes the signup information entered by the user when trying to sign up.
-6. The user can only sign up if the password meets the minimum password requirements.
+6. The user can see all the borrowed items in a table.
 
 # Criteria B: Design
 
@@ -214,7 +214,7 @@ MDRaisedButton:
 ```
 The code above demonstrates how a button is created and utilized to obtain a command from the user via KivyMD. This structure is implemented throughout the code to obtain commands from the user in different places of my code.[^21]
 
-### Success criteria 4: The solution affords the user the ability to effortlessly delete equipment records upon return
+### Success criteria 4: The user can delete an equipment records when returned
 #### Deleting a row from the table
 ```.py
 def delete(self):
@@ -258,7 +258,7 @@ def check_password(hashed_password, user_password):
 ```
 The above code demonstrates how to hash a string using the passlib library. The hash_password() function takes a user password as an input and returns the hashed password. The check_password() function is used to verify whether a user-entered password matches the hashed password stored in the database during the login process. These functions ensure that passwords are securely stored in the database and cannot be accessed by unauthorized users.[^23]
 
-### Success criteria 6: The user can only sign up if the password meets the minimum password requirements
+### Password policy
 ```.py
 pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}$'
 
@@ -270,7 +270,7 @@ if not re.match(pattern, passwd1):
     dialog.open()
     return
 ```
-<p>This code block checks whether the user's password meets the minimum requirements, which is the 6th success criteria for the user, before allowing them to sign up. The regular expression pattern enforces that the password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character from the set !@#$%^&*()_+. If the password does not match the pattern, an error message is displayed to the user, explaining the requirements for a valid password. It also provides clear feedback to the user if their password does not meet the requirements, which can help them create a valid password without frustration.</p>
+<p>This code block checks whether the user's password meets the minimum requirements, before allowing them to sign up. The regular expression pattern enforces that the password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character from the set !@#$%^&*()_+. If the password does not match the pattern, an error message is displayed to the user, explaining the requirements for a valid password. It also provides clear feedback to the user if their password does not meet the requirements, which can help them create a valid password without frustration.</p>
 
 ### Change screens, leave screens
 ```.py
