@@ -64,7 +64,7 @@ In the thank you page, the user is given the option to either go back to the hom
 </p>
 
 ### Flow diagram for try_login (LoginScreen class)
-<img src="https://user-images.githubusercontent.com/111758436/222398513-37b6aeaf-e966-4068-9208-8692f8585dd3.jpg" alt="Flowchart_try_login" style="width:100%;height:auto;">
+![flowchart_try_login](https://user-images.githubusercontent.com/111758436/223019342-aca42245-a057-427d-b25e-f025a0f94100.jpg)
 <p align="justify">
   <i>Figure 4</i> - The try_login method of the LoginScreen class is used to authenticate the user's login credentials. It takes in the user's email and password as input, and then retrieves the hashed password from the "users" table in the database using the get_password_from_email() method from the database_handler_login_signup class. The try_login method is a crucial part of the LoginScreen class as it ensures that only authorized users are granted access to the application's features.
 </p>
