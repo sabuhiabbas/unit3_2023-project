@@ -58,13 +58,13 @@ In the thank you page, the user is given the option to either go back to the hom
 
 ## Flow diagram
 ### Flow diagram for create_table (database_handler_login_signup class)
-<img src="https://user-images.githubusercontent.com/111758436/223075109-a08b705a-b932-4175-9279-a9c9d933aa65.jpeg" alt="Flowchart_create_table" style="width:100%;height:auto;">
+![create_table](https://user-images.githubusercontent.com/111758436/223078963-10e4c020-8c2a-4a36-b07f-b1c25b0e565d.jpeg)
 <p align="justify">
   <i>Figure 3</i> - The flow diagram for the create_table method of the database_handler_login_signup class is shown in Figure 3. This method is used to create a table with the name "users" that contains four columns, namely email, username, password, and user_type. This table is created only when the program is run for the first time, and if the table already exists, the method does not create a new table. The create_table method is an essential part of the database_handler_login_signup class as it sets up the necessary table for the program to function correctly.
 </p>
 
 ### Flow diagram for try_login (LoginScreen class)
-![flowchart_try_login](https://user-images.githubusercontent.com/111758436/223021851-7eabceab-e638-4ce0-9125-69774785c023.jpg)
+![flowchart_try_login](https://user-images.githubusercontent.com/111758436/223078899-fbde86c6-d711-4626-9e60-383e9a12a4fd.jpeg)
 <p align="justify">
   <i>Figure 4</i> - The try_login method of the LoginScreen class is used to authenticate the user's login credentials. It takes in the user's email and password as input, and then retrieves the hashed password from the "users" table in the database using the get_password_from_email() method from the database_handler_login_signup class. The try_login method is a crucial part of the LoginScreen class as it ensures that only authorized users are granted access to the application's features.
 </p>
