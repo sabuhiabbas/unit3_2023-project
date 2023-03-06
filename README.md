@@ -338,4 +338,4 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 
 # Appendix
 ## Success criteria confirmation by the client
-![Success_criteria_confirmation](https://user-images.githubusercontent.com/111758436/222607119-ad790fe6-f842-4692-8bbb-9d64e6ff16dc.png)
+![image](https://user-images.githubusercontent.com/111758436/223282604-0eaea9a1-bdf6-45bd-bc75-1363a82cdc34.png)
