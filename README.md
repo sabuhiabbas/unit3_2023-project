@@ -1,8 +1,8 @@
 # Unit 3: Ski/snowboard rental shop tracker
 
-![image](https://user-images.githubusercontent.com/111758436/218400436-5362c306-be78-4a34-9e6d-dd300da998e9.png)
+![image](https://user-images.githubusercontent.com/111758436/223108477-b163d5cb-9ef6-40e0-a2eb-37b09f3c9167.png)
 <p align='justify'>
-<i>Ski / Snowboard Rental</i> - “Ski / Snowboard Rental - SNOW MONKEY RESORTS.” SNOW MONKEY RESORTS!, 29 March 2021, https://www.snowmonkeyresorts.com/activities/ski-snowboard-rental/. Accessed 13 February 2023.
+<i>Ski / Snowboard Rental - Deep Dream Generator. "Ski/Snowboard rental." Deep Dream Generator, n.d., https://deepdreamgenerator.com/ddream/vkqjyy29ceg.</i>
 </p>
 
 # Criteria A: Planning
