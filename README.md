@@ -58,19 +58,19 @@ In the thank you page, the user is given the option to either go back to the hom
 
 ## Flow diagram
 ### Flow diagram for create_table (database_handler_login_signup class)
-![create_table](https://user-images.githubusercontent.com/111758436/223078963-10e4c020-8c2a-4a36-b07f-b1c25b0e565d.jpeg)
+![create_table](https://user-images.githubusercontent.com/111758436/223086547-1f649cdf-7c04-441d-9c8d-9ff04dcd4cc2.jpeg)
 <p align="justify">
   <i>Figure 3</i> - The flow diagram for the create_table method of the database_handler_login_signup class is shown in Figure 3. This method is used to create a table with the name "users" that contains four columns, namely email, username, password, and user_type. This table is created only when the program is run for the first time, and if the table already exists, the method does not create a new table. The create_table method is an essential part of the database_handler_login_signup class as it sets up the necessary table for the program to function correctly.
 </p>
 
 ### Flow diagram for try_login (LoginScreen class)
-![flowchart_try_login](https://user-images.githubusercontent.com/111758436/223078899-fbde86c6-d711-4626-9e60-383e9a12a4fd.jpeg)
+![flowchart_try_login](https://user-images.githubusercontent.com/111758436/223086624-3710e2b7-e578-49c3-a7e0-57b8c11a8c8b.jpeg)
 <p align="justify">
   <i>Figure 4</i> - The try_login method of the LoginScreen class is used to authenticate the user's login credentials. It takes in the user's email and password as input, and then retrieves the hashed password from the "users" table in the database using the get_password_from_email() method from the database_handler_login_signup class. The try_login method is a crucial part of the LoginScreen class as it ensures that only authorized users are granted access to the application's features.
 </p>
 
 ### Flow diagram for on_pre_enter (BorrowedItemsScreen class)
-<img src="https://user-images.githubusercontent.com/111758436/222402110-b5b4fe78-d3fd-45ea-93c2-c0abf8d55c99.jpg" alt="Flowchart_on_pre_enter" style="width:100%;height:auto;">
+![on_pre_enter](https://user-images.githubusercontent.com/111758436/223086666-866c604d-aa3d-4974-8d3e-1528603271f5.jpeg)
 <p align="justify">
   <i>Figure 5</i> - The on_pre_enter method of the BorrowedItemsScreen class is a crucial function that is triggered when the user clicks the "BorrowedItemsScreen" button to view a list of borrowed items. As demonstrated in Figure 5, this method updates the displayed table each time it is run to ensure that the user is presented with the most current information from the database. on_pre_enter method of the BorrowedItemsScreen class is instrumental in providing the user with a smooth and up-to-date experience when interacting with the application.
 </p>
