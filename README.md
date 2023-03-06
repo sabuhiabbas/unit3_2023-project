@@ -1,8 +1,8 @@
 # Unit 3: Ski/snowboard rental shop tracker
 
 ![image](https://user-images.githubusercontent.com/111758436/223108477-b163d5cb-9ef6-40e0-a2eb-37b09f3c9167.png)
-<p align='justify'>
-<i>Ski / Snowboard Rental - Deep Dream Generator. "Ski/Snowboard rental." Deep Dream Generator, n.d., https://deepdreamgenerator.com/ddream/vkqjyy29ceg.</i>
+<p align='center'>
+<i>Ski / Snowboard Rental</i>
 </p>
 
 # Criteria A: Planning
