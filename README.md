@@ -82,7 +82,7 @@ In the thank you page, the user is given the option to either go back to the hom
 On the right side of the diagram, the "items" table is shown. This table is used to store data related to borrowed items, such as customer ID, date, kind, size, and item ID. Each item in the table is assigned a unique item ID to prevent a single item from being lent out to multiple customers simultaneously.[^18]
 
 ## UML Diagram
-![UML_diagram](https://user-images.githubusercontent.com/111758436/222324521-c8d27aa5-3c10-43c0-9a90-05e6bdbc6e37.jpg)
+![unit3_UML](https://user-images.githubusercontent.com/111758436/223051437-2670c220-282a-437d-ab93-0587d8bfd460.jpeg)
 <i>Figure 7</i> - The UML diagram in Figure 7 illustrates the class hierarchy used in the application. All classes are designed to inherit from the main class MDApp and MDClasses. This inheritance hierarchy is shown in the diagram, which clearly illustrates the relationships between the various classes and their properties.
 
 In the diagram, each class is represented by a rectangle containing the class name, attributes, and methods. Arrows between the classes denote inheritance relationships, with child classes located beneath their parent classes.[^19]
