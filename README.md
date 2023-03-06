@@ -58,7 +58,7 @@ In the thank you page, the user is given the option to either go back to the hom
 
 ## Flow diagram
 ### Flow diagram for create_table (database_handler_login_signup class)
-![create_table](https://user-images.githubusercontent.com/111758436/223020327-3f7680bf-8cae-4dd1-82d5-949be63de914.jpg)
+<img src="https://user-images.githubusercontent.com/111758436/223020327-3f7680bf-8cae-4dd1-82d5-949be63de914.jpg" alt="Flowchart_create_table" style="width:100%;height:auto;">
 <p align="justify">
   <i>Figure 3</i> - The flow diagram for the create_table method of the database_handler_login_signup class is shown in Figure 3. This method is used to create a table with the name "users" that contains four columns, namely email, username, password, and user_type. This table is created only when the program is run for the first time, and if the table already exists, the method does not create a new table. The create_table method is an essential part of the database_handler_login_signup class as it sets up the necessary table for the program to function correctly.
 </p>
