@@ -316,38 +316,38 @@ This code creates a dialog box using KivyMD to notify the user that an item has 
 ## A video demonstrating the proposed solution with narration
 Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how the application function.
 
-[^1]: "Python." Wikipedia, Wikimedia Foundation, 10 Feb. 2023, https://en.wikipedia.org/wiki/Python.
-[^2]: "Why Choose Python." Python.org, Python Software Foundation, 10 Feb. 2023, https://www.python.org/about/gettingstarted/.
-[^3]: "Python for Data Science Handbook." O'Reilly, O'Reilly Media, Inc., 10 Feb. 2023, https://www.oreilly.com/library/view/python-for-data/9781491912126/
-[^4]: "KivyMD: Material Design Components for Kivy." Github, 10 Feb. 2023, https://github.com/kivymd/KivyMD.
-[^5]: "SQL." W3Schools, 10 Feb. 2023, https://www.w3schools.com/sql/
-[^6]: "4.1. if Statements." Python 3.10.1 Documentation, Python Software Foundation, 2022, Accessed 2 Mar. 2023. https://docs.python.org/3/tutorial/controlflow.html#if-statements.
-[^7]: Python Library. “Chapter 5: Loops.” Python 101, pythonlibrary.org, Accessed 2 Mar. 2023. https://python101.pythonlibrary.org/chapter5_loops.html.
-[^8]: "Functions." Easy Python Docs, Easy Python, 2023, Accessed 2 Mar. 2023. https://www.easypythondocs.com/functions.html.
-[^9]: "Variables." Easy Python Docs, Easy Python Docs, n.d., https://www.easypythondocs.com/variables.html. Accessed 2 Mar. 2023.
-[^10]: Code Fellows. “Python Data Structures: Arrays and Lists.” Code Fellows, n.d., https://codefellows.github.io/sea-python-401d4/lectures/array.html. Accessed 2 Mar. 2023.
-[^11]: Python Software Foundation. "Objects, Values, and Types." Python 3.9.7 documentation, 2021, https://docs.python.org/3/reference/datamodel.html#objects-values-and-types. Accessed 2 Mar. 2023.
-[^12]: Python Software Foundation. “9. Classes.” Python 3.10.0 documentation, Python Software Foundation, 2021, https://docs.python.org/3/tutorial/classes.html. Accessed 2 Mar. 2023.
-[^13]: Inheritance: "Classes - Python 3.10.0 documentation." Python Software Foundation, 2021, https://docs.python.org/3/tutorial/classes.html#inheritance. Accessed 2 Mar. 2023.
-[^14]: Polymorphism in Python: Programiz. “Polymorphism in Python.” Programiz, n.d., https://www.programiz.com/python-programming/polymorphism. Accessed 2 March 2023.
-[^15]: Real Python. “Python Recursion: Learn to Solve Problems with Recursion (Examples).” Real Python, Real Python, 11 May 2021, https://realpython.com/python-recursion/. Accessed 2 Mar. 2023
-[^16]: Canva. "Amazingly Simple Graphic Design Software – Canva." Canva, Canva, https://www.canva.com/. Accessed Feb. 10 2023
-[^17]: Wireframe.cc. N.p., n.d. Web. https://wireframe.cc/. Accessed Feb. 10 2023
-[^18]: "Online Diagramming and Visual Solution." Creately, Creately, https://creately.com/. Accessed Feb. 24 2023
-[^19]: Lucidchart. "Diagram Maker & Visual Solution." Lucidchart, Lucid Software Inc., 2023, https://www.lucidchart.com/. Acessed 2 Mar. 2023
-[^20]: "Text Field — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/text-field/index.html. Accessed Mar. 2 2023
-[^21]: "Button — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/button/index.html. Accessed Mar. 2 2023
-[^22]: "Dialog — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/dialog/index.html. Accessed Mar. 2 2023
-[^23]: "The CryptContext Class — Passlib v1.7.4 Documentation." Passlib, 2021, https://passlib.readthedocs.io/en/stable/lib/passlib.context.html#the-cryptcontext-class. Accessed Mar. 2 2023
-[^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
-[^25]: JetBrains. PyCharm Professional. Version 2023.3.2, JetBrains, 2023. Accessed Mar. 2 2023
-[^26]: OpenAI. GitHub Copilot. Beta release, OpenAI, 2022. Accessed Mar. 2 2023
-[^27]: CodeGPT Documentation. Edited by OpenAI, 2021, https://code-gpt-docs.vercel.app/. Accessed Mar. 2 2023
-[^28]: KivyMD. "KivyMD - A set of widgets for Kivy inspired by Google's Material Design." KivyMD, https://kivymd.app/. Accessed Mar. 2 2023
-[^29]: SQLite. "SQLite Home Page." SQLite, https://www.sqlite.org/. Accessed Mar. 2 2023
-[^30]: Passlib. "Passlib Documentation." Read the Docs, https://passlib.readthedocs.io/en/stable/. Accessed Mar. 2 2023
-[^31]: Python Software Foundation. "re - Regular expression operations." Python 3.10.0 documentation, 5 Oct. 2021, https://docs.python.org/3/library/re.html. Accessed Mar. 2 2023
-[^32]: Kadir, Joshua. "email_validator: A robust email syntax and deliverability validation library for Python 2.x/3.x." PyPI - the Python Package Index, 9 Feb. 2022, https://pypi.org/project/email-validator/. Accessed Mar. 2 2023
+[^1]: "Python." Wikipedia, Wikimedia Foundation, https://en.wikipedia.org/wiki/Python. Accessed 7 Mar. 2023.
+[^2]: "Why Choose Python." Python.org, Python Software Foundation, https://www.python.org/about/gettingstarted/. Accessed 7 Mar. 2023.
+[^3]: "Python for Data Science Handbook." O'Reilly, O'Reilly Media, Inc., https://www.oreilly.com/library/view/python-for-data/9781491912126/. Accessed 7 Mar. 2023. 
+[^4]: "KivyMD: Material Design Components for Kivy." Github, https://github.com/kivymd/KivyMD. Accessed 7 Mar. 2023.
+[^5]: "SQL." W3Schools, https://www.w3schools.com/sql/. Accessed 7 Mar. 2023.
+[^6]: "4.1. if Statements." Python 3.10.1 Documentation, Python Software Foundation, 2022, Accessed 7 Mar. 2023. https://docs.python.org/3/tutorial/controlflow.html#if-statements.
+[^7]: Python Library. “Chapter 5: Loops.” Python 101, pythonlibrary.org, Accessed 7 Mar. 2023. https://python101.pythonlibrary.org/chapter5_loops.html.
+[^8]: "Functions." Easy Python Docs, Easy Python, 2023, Accessed 7 Mar. 2023. https://www.easypythondocs.com/functions.html.
+[^9]: "Variables." Easy Python Docs, Easy Python Docs, n.d., https://www.easypythondocs.com/variables.html. Accessed 7 Mar. 2023.
+[^10]: Code Fellows. “Python Data Structures: Arrays and Lists.” Code Fellows, n.d., https://codefellows.github.io/sea-python-401d4/lectures/array.html. Accessed 7 Mar. 2023.
+[^11]: Python Software Foundation. "Objects, Values, and Types." Python 3.9.7 documentation, 2021, https://docs.python.org/3/reference/datamodel.html#objects-values-and-types. Accessed 7 Mar. 2023.
+[^12]: Python Software Foundation. “9. Classes.” Python 3.10.0 documentation, Python Software Foundation, 2021, https://docs.python.org/3/tutorial/classes.html. Accessed 7 Mar. 2023.
+[^13]: Inheritance: "Classes - Python 3.10.0 documentation." Python Software Foundation, 2021, https://docs.python.org/3/tutorial/classes.html#inheritance. Accessed 7 Mar. 2023.
+[^14]: Polymorphism in Python: Programiz. “Polymorphism in Python.” Programiz, n.d., https://www.programiz.com/python-programming/polymorphism. Accessed 7 March 2023.
+[^15]: Real Python. “Python Recursion: Learn to Solve Problems with Recursion (Examples).” Real Python, Real Python, 11 May 2021, https://realpython.com/python-recursion/. Accessed 7 Mar. 2023
+[^16]: Canva. "Amazingly Simple Graphic Design Software – Canva." Canva, Canva, https://www.canva.com/. Accessed Mar. 7 2023
+[^17]: Wireframe.cc. N.p., n.d. Web. https://wireframe.cc/. Accessed 7 Mar. 2023.
+[^18]: "Online Diagramming and Visual Solution." Creately, Creately, https://creately.com/. Accessed 7 Mar. 2023.
+[^19]: Lucidchart. "Diagram Maker & Visual Solution." Lucidchart, Lucid Software Inc., 2023, https://www.lucidchart.com/. Acessed 7 Mar. 2023
+[^20]: "Text Field — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/text-field/index.html. Accessed Mar. 7 2023
+[^21]: "Button — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/button/index.html. Accessed Mar. 7 2023
+[^22]: "Dialog — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/dialog/index.html. Accessed Mar. 7 2023
+[^23]: "The CryptContext Class — Passlib v1.7.4 Documentation." Passlib, 2021, https://passlib.readthedocs.io/en/stable/lib/passlib.context.html#the-cryptcontext-class. Accessed Mar. 7 2023
+[^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 7 2023
+[^25]: JetBrains. PyCharm Professional. Version 2023.3.2, JetBrains, 2023. Accessed Mar. 7 2023
+[^26]: OpenAI. GitHub Copilot. Beta release, OpenAI, 2022. Accessed Mar. 7 2023
+[^27]: CodeGPT Documentation. Edited by OpenAI, 2021, https://code-gpt-docs.vercel.app/. Accessed Mar. 7 2023
+[^28]: KivyMD. "KivyMD - A set of widgets for Kivy inspired by Google's Material Design." KivyMD, https://kivymd.app/. Accessed Mar. 7 2023
+[^29]: SQLite. "SQLite Home Page." SQLite, https://www.sqlite.org/. Accessed Mar. 7 2023
+[^30]: Passlib. "Passlib Documentation." Read the Docs, https://passlib.readthedocs.io/en/stable/. Accessed Mar. 7 2023
+[^31]: Python Software Foundation. "re - Regular expression operations." Python 3.10.0 documentation, 5 Oct. 2021, https://docs.python.org/3/library/re.html. Accessed Mar. 7 2023
+[^32]: Kadir, Joshua. "email_validator: A robust email syntax and deliverability validation library for Python 2.x/3.x." PyPI - the Python Package Index, 9 Feb. 2022, https://pypi.org/project/email-validator/. Accessed Mar. 7 2023
 
 # Appendix
 ## Success criteria confirmation by the client
