@@ -141,11 +141,11 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 ## Existing tools
 | Software/Development tools | Coding Structure Tools        | Libraries       |
 |----------------------------|-------------------------------|-----------------|
-| PyCharm[^25]               | OOP Structures (classes)      | Kivymd.app      |
-| Python[^1]                 | SQL requests                  | sqlite3         |
-| SQLite[^5]                 | Databases                     | passlib         |
-| KivyMD[^4]                 | Encryption                    | re              |
-| Github Copilot[^26]        | For loops                     | email_validator |
+| PyCharm[^25]               | OOP Structures (classes)      | Kivymd.app[^28] |
+| Python[^1]                 | SQL requests                  | sqlite3[^29]    |
+| SQLite[^5]                 | Databases                     | passlib[^30]    |
+| KivyMD[^4]                 | Encryption                    | re[^31]         |
+| Github Copilot[^26]        | For loops                     | email_validator[^32] |
 | CodeGPT[^27]               | If-else statements            |                 |
 |                            | ORM (Object Relation Mapping) |                 |
 
@@ -344,9 +344,14 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 [^22]: "Dialog — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/dialog/index.html. Accessed Mar. 2 2023
 [^23]: "The CryptContext Class — Passlib v1.7.4 Documentation." Passlib, 2021, https://passlib.readthedocs.io/en/stable/lib/passlib.context.html#the-cryptcontext-class. Accessed Mar. 2 2023
 [^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
-[^25]: JetBrains. PyCharm Professional. Version 2023.3.2, JetBrains, 2023.
-[^26]: OpenAI. GitHub Copilot. Beta release, OpenAI, 2022.
-[^27]: CodeGPT Documentation. Edited by OpenAI, 2021, https://code-gpt-docs.vercel.app/.
+[^25]: JetBrains. PyCharm Professional. Version 2023.3.2, JetBrains, 2023. Accessed Mar. 2 2023
+[^26]: OpenAI. GitHub Copilot. Beta release, OpenAI, 2022. Accessed Mar. 2 2023
+[^27]: CodeGPT Documentation. Edited by OpenAI, 2021, https://code-gpt-docs.vercel.app/. Accessed Mar. 2 2023
+[^28]: KivyMD. "KivyMD - A set of widgets for Kivy inspired by Google's Material Design." KivyMD, https://kivymd.app/. Accessed Mar. 2 2023
+[^29]: SQLite. "SQLite Home Page." SQLite, https://www.sqlite.org/. Accessed Mar. 2 2023
+[^30]: Passlib. "Passlib Documentation." Read the Docs, https://passlib.readthedocs.io/en/stable/. Accessed Mar. 2 2023
+[^31]: Python Software Foundation. "re - Regular expression operations." Python 3.10.0 documentation, 5 Oct. 2021, https://docs.python.org/3/library/re.html. Accessed Mar. 2 2023
+[^32]: Kadir, Joshua. "email_validator: A robust email syntax and deliverability validation library for Python 2.x/3.x." PyPI - the Python Package Index, 9 Feb. 2022, https://pypi.org/project/email-validator/. Accessed Mar. 2 2023
 
 # Appendix
 ## Success criteria confirmation by the client
