@@ -146,7 +146,7 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 | SQLite[^5]                 | Databases                     | passlib         |
 | KivyMD[^4]                 | Encryption                    | re              |
 | Github Copilot[^26]        | For loops                     | email_validator |
-| CodeGPT                    | If-else statements            |                 |
+| CodeGPT[^27]               | If-else statements            |                 |
 |                            | ORM (Object Relation Mapping) |                 |
 
 ## List of techniques used
@@ -346,6 +346,7 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 [^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
 [^25]: JetBrains. PyCharm Professional. Version 2023.3.2, JetBrains, 2023.
 [^26]: OpenAI. GitHub Copilot. Beta release, OpenAI, 2022.
+[^27]: CodeGPT Documentation. Edited by OpenAI, 2021, https://code-gpt-docs.vercel.app/.
 
 # Appendix
 ## Success criteria confirmation by the client
