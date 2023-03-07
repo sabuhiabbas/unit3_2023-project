@@ -138,6 +138,17 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 
 # Criteria C: Development
 
+## Existing tools
+| Software/Development tools | Coding Structure Tools        | Libraries       |
+|----------------------------|-------------------------------|-----------------|
+| PyCharm[^25]               | OOP Structures (classes)      | Kivymd.app      |
+| Python[^1]                 | SQL requests                  | sqlite3         |
+| SQLite[^5]                 | Databases                     | passlib         |
+| KivyMD[^4]                 | Encryption                    | re              |
+| Github Copilot[^26]        | For loops                     | email_validator |
+| CodeGPT                    | If-else statements            |                 |
+|                            | ORM (Object Relation Mapping) |                 |
+
 ## List of techniques used
 
 1. If-else statements: These are conditional statements that allow the program to make decisions based on certain conditions. If a condition is true, a certain block of code is executed, otherwise, another block of code is executed.[^6]
@@ -150,8 +161,6 @@ Check if table shows the correct data	|	Non-functional: Load testing	|	Login, go
 8. Inheritance: This is a feature of object-oriented programming that allows a class to inherit properties and behaviors from another class.[^13]
 9. Polymorphism: This is another feature of object-oriented programming that allows objects of different classes to be treated as if they were of the same class, by using common interfaces or abstract classes.[^14]
 10. Recursion: This is a technique where a function calls itself to solve a problem by breaking it down into smaller subproblems. Recursion is used in many algorithms, such as sorting and searching.[^15]
-11. KivyMD: building UI using KivyMD library, including navigation, layouts, widgets, and animations.[^4]
-12. SQLite: working with SQLite database, including creating tables, inserting, updating, and retrieving data, and using SQL queries to manipulate data.[^5]
 
 ## Development
 ### Success criteria 1: The solution validates the input for items to rent, so the datatable is well-organized
@@ -335,6 +344,8 @@ Please find the video in [this link](https://youtu.be/HfCwjyDmsc0) to watch how 
 [^22]: "Dialog — KivyMD 0.104.1.dev0 documentation." KivyMD, 2021, https://kivymd.readthedocs.io/en/0.104.1/components/dialog/index.html. Accessed Mar. 2 2023
 [^23]: "The CryptContext Class — Passlib v1.7.4 Documentation." Passlib, 2021, https://passlib.readthedocs.io/en/stable/lib/passlib.context.html#the-cryptcontext-class. Accessed Mar. 2 2023
 [^24]: "Kivy.uix.screenmanager — Kivy 2.0.0 documentation." Kivy, 2021, https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html. Accessed Mar. 2 2023
+[^25]: JetBrains. PyCharm Professional. Version 2023.3.2, JetBrains, 2023.
+[^26]: OpenAI. GitHub Copilot. Beta release, OpenAI, 2022.
 
 # Appendix
 ## Success criteria confirmation by the client
