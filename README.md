@@ -241,7 +241,7 @@ def delete(self):
     db.close()
     self.update()
 ```
-The above code shows how to delete checked rows from a table in the database. The code accesses the checked rows using the get_row_checks() function, deletes them using a loop and a delete query. The code also uses the MDDialog function to create an alert dialog to inform the user that the item has been deleted. This structure is used in other areas of the code to display pop-up dialogs.[^22]
+The above code shows how to delete checked rows from a table in the database. The code accesses the checked rows using the get_row_checks() function, deletes them using a loop and a delete query. The code also uses the MDDialog function to create an alert dialog to inform the user that the item has been deleted. This structure is used in other areas of the code to display [pop-up dialogs](https://github.com/2024sabuhiabbasov/unit3_2023-project/blob/main/README.md#pop-up-diolog).
 
 ### Success criteria 5: The solution hashes the signup information entered by the user when trying to sign up
 #### Hashing a string
@@ -310,7 +310,7 @@ dialog = MDDialog(title="Thank you, item deleted!",
                          text=f"Your item ID: {item_id} has been successfully deleted.")
 dialog.open()
 ```
-This code creates a dialog box using KivyMD to notify the user that an item has been successfully deleted from the database. It takes the item ID as input and displays it in the dialog box. This code is reusable in different parts of the application where a similar confirmation dialog box is needed.
+This code creates a dialog box using KivyMD to notify the user that an item has been successfully deleted from the database. It takes the item ID as input and displays it in the dialog box. This code is reusable in different parts of the application where a similar confirmation dialog box is needed.[^22]
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
