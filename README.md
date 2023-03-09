@@ -184,17 +184,6 @@ def insert(self, email, username, password):
 ```
 The code shown above demonstrates how to insert new user data into the database. This same structure is also applied when I need to insert a new item into the database.
 
-#### Show password method
-```.py
-# Define a method that toggles the visibility of the password field
-def toggle_show_password(self):
-    # Invert the value of the show_password attribute
-    self.show_password = not self.show_password
-    # Set the password attribute of the password field to the opposite of the show_password attribute
-    self.ids.passwd_in.password = not self.show_password
-```
-The code defines a method that allows for the visibility of the password field to be toggled. This helped me to make it easier for the user to avoid human errors when entering their password on the login screen. When called, the method inverts the value of the show_password attribute and sets the password attribute of the password field to the opposite of the show_password attribute.
-
 ### Success criteria 2: The application features a secure login system, enabling the user to protect their data
 The login system provides a secure way for users to access the application, protecting the data they enter and store in the application's database. Users can log in whenever they need to use the application, ensuring the safety and confidentiality of their information.
 #### KivyMD Text field
@@ -218,6 +207,17 @@ MDRaisedButton:
     md_bg_color: "#689ebd"
 ```
 The code above demonstrates how a button is created and utilized to obtain a command from the user via KivyMD. This structure is implemented throughout the code to obtain commands from the user in different places of my code.[^21]
+
+#### Show password method
+```.py
+# Define a method that toggles the visibility of the password field
+def toggle_show_password(self):
+    # Invert the value of the show_password attribute
+    self.show_password = not self.show_password
+    # Set the password attribute of the password field to the opposite of the show_password attribute
+    self.ids.passwd_in.password = not self.show_password
+```
+The code defines a method that allows for the visibility of the password field to be toggled. This helped me to make it easier for the user to avoid human errors when entering their password on the login screen. When called, the method inverts the value of the show_password attribute and sets the password attribute of the password field to the opposite of the show_password attribute.
 
 ### Success criteria 4: The user can delete an equipment records when returned
 #### Deleting a row from the table
